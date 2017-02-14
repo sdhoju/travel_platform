@@ -1,0 +1,28 @@
+System Requirements
+
+Stakeholders:
+Travelling UM employees
+UM management responsible for statistical reports
+
+User Requirement:
+Software software tracks various travel expense items, stores them until
+the end of the trip. In the end of the trip, it compiles the data into PDF
+State Travel Reimbursement form for signature and submission. 
+
+System Requirements:
+-Software needs to have login system to accommodate multiple user.
+-Each user profile needs to accommodate multiple trips, “travels”.
+-Software needs to divide expenses into following categories:
+    -Daily travel expenses, Transportation, Expenditures
+-Software needs to have a “finalize” button which would process the data
+ into a PDF file in a format of State Travel Reimbursement form. 
+-All the data information needs to be uploaded to University of Mississippi
+ server for future retrieval. 
+-Software should provide statistical data for analysis by University management.  
+
+Functional Requirements:
+Software needs to be a mobile responsive webapp.
+
+Non-Functional Requirements:
+-Software needs to be availible 24/7.
+-Software must be finished by the end of semester.

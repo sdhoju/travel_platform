@@ -37,12 +37,6 @@ body {
 		}
 	}
 
-	.bottomLinks {
-		text-transform: center;
-		display: block;
-		
-	}
-
 	input[type="text"] {
 	  margin-bottom: -1px;
 	  border-bottom-left-radius: 0;

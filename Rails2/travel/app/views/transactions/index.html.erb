@@ -1,0 +1,16 @@
+<h1>Listing Transactions</h1>
+ 
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Amount</th>
+  </tr>
+ 
+  <% @transactions.each do |transaction| %>
+    <tr>
+      <td><%= transaction.item %></td>
+      <td><%= transaction.amount %></td>
+      <td><%= link_to 'Show', transaction_path(transaction) %></td>
+    </tr>
+  <% end %>
+</table>

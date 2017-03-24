@@ -1,0 +1,14 @@
+<%= form_for :transaction, url: transactions_path do |f| %>
+  
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+ 
+ 
+ 
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  
+  
+    <%= f.submit %>
+
+<% end %>

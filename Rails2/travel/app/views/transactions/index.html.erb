@@ -10,7 +10,10 @@
     <tr>
       <td><%= transaction.item %></td>
       <td><%= transaction.amount %></td>
-      <td><%= link_to 'Show', transaction_path(transaction) %></td>
+      <td><%= link_to '<button type="button">Show</button>'.html_safe, transaction_path(transaction) %></td>
+
     </tr>
+
   <% end %>
 </table>
+  <%= link_to '<button type="button">New</button>'.html_safe, new_transaction_path %> 

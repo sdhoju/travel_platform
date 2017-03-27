@@ -2,7 +2,8 @@
   <strong>Item: </strong>
   <%= @transaction.item %>
 
- 
-
   <strong> Amount: </strong>
   <%= @transaction.amount %>
+
+<br>
+<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

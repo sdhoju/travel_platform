@@ -1,0 +1,11 @@
+<%= form_for([@transaction, @transaction.items.build]) do |f| %>
+
+    <%= f.label :item_name %>
+    <%= f.text_field :item_name %>
+ 
+    <%= f.label :item_amount %>
+    <%= f.text_field :item_amount %>
+
+    <%= f.submit %>
+
+<% end %>

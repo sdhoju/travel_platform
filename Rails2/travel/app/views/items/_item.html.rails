@@ -1,0 +1,5 @@
+  <strong>Item: </strong>
+  <%= @item.item_name %>
+
+  <strong> Amount: </strong>
+  <%= @item.item_amount %>

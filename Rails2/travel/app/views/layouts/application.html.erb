@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Travel</title>
+    <title>TravelWise</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,10 +10,13 @@
 
   <body>
 
-  <h1><center>   <%= image_tag("IconBanner.png", :alt => "logo", size: "50") %> Travel Wise</center></h1>
-  <%= link_to 'Home', controller: 'welcome' %><br>
-    <%= yield %>
+  <h1><%= image_tag("IconBanner.png", :alt => "logo", size: "40") %> TravelWise
+  <%= link_to '<button type="button">Home</button>'.html_safe, controller: 'welcome' %>
+  <%= link_to '<button type="button">Trips</button>'.html_safe %> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
+  <%= link_to '<button type="button">Transactions</button>'.html_safe, controller: 'transactions' %>
+  <%= link_to '<button type="button">Reports</button>'.html_safe %><br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
 
-    <h1><center>Group Quadratic </center> </h1>
+  </h1>
+    <%= yield %>
   </body>
 </html>

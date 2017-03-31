@@ -4,6 +4,10 @@
 
   <strong> Amount: </strong>
   <%= @transaction.amount %>
+
+dest
+  <%= @transaction.dest %>
+
 <%= link_to '<button type="button">Edit</button>'.html_safe, edit_transaction_path(@transaction) %> 
 <%= link_to '<button type="button">Delete</button>'.html_safe, transaction_path(@transaction),
               method: :delete,

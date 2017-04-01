@@ -10,34 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170329032228) do
-
-  create_table "ditems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "dname"
-    t.decimal  "damount",        precision: 10
-    t.integer  "transaction_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["transaction_id"], name: "index_ditems_on_transaction_id", using: :btree
-  end
-
-  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "iname"
-    t.decimal  "iamount",        precision: 10
-    t.integer  "transaction_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["transaction_id"], name: "index_items_on_transaction_id", using: :btree
-  end
-
-  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "name"
-    t.decimal  "amount",     precision: 10
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-=======
-ActiveRecord::Schema.define(version: 20170331235111) do
+ActiveRecord::Schema.define(version: 20170401015100) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -50,6 +23,15 @@ ActiveRecord::Schema.define(version: 20170331235111) do
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "item_name"
+    t.decimal  "item_amount",    precision: 10
+    t.integer  "transaction_id"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.index ["transaction_id"], name: "index_items_on_transaction_id", using: :btree
   end
 
   create_table "other_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -72,6 +54,14 @@ ActiveRecord::Schema.define(version: 20170331235111) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "item"
+    t.decimal  "amount",     precision: 10
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "dest"
+  end
+
   create_table "transportations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
@@ -86,31 +76,9 @@ ActiveRecord::Schema.define(version: 20170331235111) do
   end
 
   create_table "trips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
-    t.text     "contact_person", limit: 65535
-    t.text     "purpose",        limit: 65535
-    t.text     "place",          limit: 65535
-    t.date     "start_day"
-    t.time     "start_time"
-    t.date     "end_day"
-    t.time     "end_time"
-    t.text     "accomp_person",  limit: 65535
-    t.string   "currency"
-    t.decimal  "exchange_rate",                precision: 8,  scale: 2
-    t.text     "comments",       limit: 65535
-    t.boolean  "trip_over"
-    t.decimal  "trip_estimate",                precision: 12, scale: 2
->>>>>>> b1e8c198d09f14e42940a2afbc096ff67d0f8cdf
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "trips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "place"
-    t.text     "purpose",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  add_foreign_key "ditems", "transactions"
   add_foreign_key "items", "transactions"
 end

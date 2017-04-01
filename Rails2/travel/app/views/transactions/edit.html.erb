@@ -1,7 +1,7 @@
 <center>
 
 <h3>Edit this transaction </h3><br>
-<%= form_for :transaction, url: transactions_path do |f| %>
+<%= form_for :transaction, url: transactions_path(@transaction) do |f| %>
     <% if @transaction.errors.any? %>
     <div id="error_explanation">
       <h2>

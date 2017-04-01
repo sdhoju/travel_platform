@@ -1,32 +1,6 @@
 <center>
 
 <h3>Edit this transaction </h3><br>
-<%= form_for :transaction, url: transactions_path(@transaction) do |f| %>
-    <% if @transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@transaction.errors.count, "error") %> prohibited
-        this transaction from being saved:
-      </h2>
-      <ul>
-        <% @transaction.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-    <%= f.label :item %>
-    <%= f.text_field :item %>
- 
- 
- 
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-  
-  
-    <%= f.submit "save" %>
-
-<% end %>
+<%= render 'form' %>
 </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

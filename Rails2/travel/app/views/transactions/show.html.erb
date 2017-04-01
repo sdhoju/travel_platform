@@ -1,18 +1,18 @@
-
+<center>
   <strong> Category: </strong>
   <%= @transaction.dcategory.name %>
-  
-  <strong>Transaction : </strong>
+
+  <strong>Detail : </strong>
   <%= @transaction.item %>
 
   <strong> Amount: </strong>
-  <%= @transaction.amount %>
+  $<%= @transaction.amount %>
 
- 
+
 
 <%= link_to '<button type="button">Edit</button>'.html_safe, edit_transaction_path(@transaction) %> 
 <%= link_to '<button type="button">Delete</button>'.html_safe, transaction_path(@transaction),
               method: :delete,
               data: { confirm: 'Delete data?' } %>
-<br>
+ </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions' %>

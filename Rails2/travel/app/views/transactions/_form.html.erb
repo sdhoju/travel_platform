@@ -14,7 +14,7 @@
   <% end %>
     
     <%= f.collection_select :dcategory_id, Dcategory.all, :id, :name, {promt: "Chose your Daily expenses"} %>
-    <%= f.label :item %>
+    <%= f.label :Detail %>
     <%= f.text_field :item %>
     
     <%= f.label :amount %>

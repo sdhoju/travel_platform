@@ -15,7 +15,7 @@ default: &default
   pool: 5
   timeout: 5000
   username: root
-  password: olemiss2017
+  password: 123
   host: localhost
 
 

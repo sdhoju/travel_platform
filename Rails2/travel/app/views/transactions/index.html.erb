@@ -2,12 +2,14 @@
  <center>
 <table>
   <tr>
+    <th>Category</th>
     <th>Item</th>
     <th>Amount</th>
   </tr>
  
   <% @transactions.each do |transaction| %>
     <tr>
+    <td><%= transaction.dcategory.name %></td>
       <td><%= transaction.item %></td>
       <td><%= transaction.amount %></td>
       <td><%= link_to '<button type="button">Show</button>'.html_safe, transaction_path(transaction) %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401015100) do
+ActiveRecord::Schema.define(version: 20170401170449) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 20170401015100) do
     t.string   "type"
     t.date     "day"
     t.decimal  "amount",     precision: 8, scale: 2
+  end
+
+  create_table "dcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -56,10 +62,11 @@ ActiveRecord::Schema.define(version: 20170401015100) do
 
   create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "item"
-    t.decimal  "amount",     precision: 10
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.decimal  "amount",       precision: 10
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "dest"
+    t.integer  "dcategory_id"
   end
 
   create_table "transportations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

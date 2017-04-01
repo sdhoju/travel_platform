@@ -1,11 +1,14 @@
 
+  <strong> Category: </strong>
+  <%= @transaction.dcategory.name %>
+  
   <strong>Transaction : </strong>
   <%= @transaction.item %>
 
   <strong> Amount: </strong>
   <%= @transaction.amount %>
 
-
+ 
 
 <%= link_to '<button type="button">Edit</button>'.html_safe, edit_transaction_path(@transaction) %> 
 <%= link_to '<button type="button">Delete</button>'.html_safe, transaction_path(@transaction),

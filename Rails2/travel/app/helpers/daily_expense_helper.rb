@@ -1,0 +1,2 @@
+module DailyExpenseHelper
+end

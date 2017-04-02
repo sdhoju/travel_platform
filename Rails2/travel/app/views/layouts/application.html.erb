@@ -10,9 +10,10 @@
 
   <body>
 
+
   <h1><%= image_tag("IconBanner.png", :alt => "logo", size: "40") %> TravelWise
   <%= link_to '<button type="button">Home</button>'.html_safe, controller: 'welcome' %>
-  <%= link_to '<button type="button">Trips</button>'.html_safe %> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
+  <%= link_to '<button type="button">Trips</button>'.html_safe, controller: 'trips' %> 
   <%= link_to '<button type="button">Daily Expenses</button>'.html_safe, controller: 'transactions' %>
   <%= link_to '<button type="button">Reports</button>'.html_safe %><br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
 

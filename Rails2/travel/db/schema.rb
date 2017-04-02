@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401170449) do
+ActiveRecord::Schema.define(version: 20170402181308) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(version: 20170401170449) do
   end
 
   create_table "trips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "place"
+    t.text     "purpose",    limit: 65535
   end
 
   add_foreign_key "items", "transactions"

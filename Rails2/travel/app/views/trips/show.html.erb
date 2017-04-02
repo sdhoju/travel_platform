@@ -1,0 +1,17 @@
+<center>
+
+  <strong>Place : </strong>
+  <%= @trip.place %>
+
+  <strong> Purpose: </strong>
+  <%= @trip.purpose %>
+
+
+
+
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_path(@trip) %> 
+<%= link_to '<button type="button">Delete</button>'.html_safe, trip_path(@trip),
+              method: :delete,
+              data: { confirm: 'Delete trip?' } %>
+ </center><br>
+<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>

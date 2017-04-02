@@ -2,25 +2,27 @@
 
 <table>
   <tr>
+  <th>S.N</th>
     <th>Category</th>
     <th>Detail</th>
     <th>Amount</th>
   </tr>
- 
+ <% @inc =0 %>
   <% @transactions.each do |transaction| %>
     <tr>
+    <td><%= @inc+=1 %></td>
     <td><%= transaction.dcategory.name %></td>
       <td><%= transaction.item %></td>
       <td>$<%= transaction.amount %></td>
       <td><%= link_to '<button type="button">Show</button>'.html_safe, transaction_path(transaction) %></td>
 
     </tr>
-
+ 
 
   <% end %>
 </table>
-
-  Total = $<%= Transaction.sum(:'amount') %> 
-  
+Total = $<%= Transaction.sum(:'amount') %><br>
+   
+  <%= link_to '<button type="button">Add New</button>'.html_safe, new_transaction_path %> 
 </center>
-  <%= link_to '<button type="button">New</button>'.html_safe, new_transaction_path %> 
+  

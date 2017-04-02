@@ -1,0 +1,2 @@
+class DailyExpenseController < ApplicationController
+end

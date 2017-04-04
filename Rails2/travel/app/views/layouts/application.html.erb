@@ -11,13 +11,12 @@
 
   <body style="background-color:lightblue;">
 
-<<<<<<< HEAD
+  <h1>
+   <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>
+  <%= link_to controller: 'welcome' do %>
+    <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>
+  <% end %>
 
-  <h1><%= image_tag("IconBanner.png", :alt => "logo", size: "40") %> TravelWise
-=======
-  <h1><%= image_tag("IconBanner.png", :alt => "logo", size: "60") %> <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>
->>>>>>> 0d90f33599046de19962ebac0ba90950a3328360
-  <%= link_to '<button type="button">Home</button>'.html_safe, controller: 'welcome' %>
   <%= link_to '<button type="button">Trips</button>'.html_safe, controller: 'trips' %> 
   <%= link_to '<button type="button">Daily Expenses</button>'.html_safe, controller: 'transactions' %>
   <%= link_to '<button type="button">Reports</button>'.html_safe %><br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->

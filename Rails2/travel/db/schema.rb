@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402181308) do
+ActiveRecord::Schema.define(version: 20170405184558) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 20170402181308) do
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "item_name"
-    t.decimal  "item_amount",    precision: 10
-    t.integer  "transaction_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["transaction_id"], name: "index_items_on_transaction_id", using: :btree
   end
 
   create_table "other_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -89,5 +80,4 @@ ActiveRecord::Schema.define(version: 20170402181308) do
     t.text     "purpose",    limit: 65535
   end
 
-  add_foreign_key "items", "transactions"
 end

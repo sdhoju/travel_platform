@@ -1,0 +1,14 @@
+<%= form_for([@trip, @trip.transportations.build])  do |f| %>
+    
+    
+    <%= f.label :from %>
+    <%= f.text_field :from %>
+    <%= f.label :to %>
+    <%= f.text_field :to %>
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>

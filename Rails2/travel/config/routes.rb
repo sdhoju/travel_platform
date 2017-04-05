@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   get 'transactions/index'
  
 resources :trips 
+
+resources :trips do
+	resources :transportations
+end	 
+
+
+
  resources :transactions do
  	resources :ditems
  end

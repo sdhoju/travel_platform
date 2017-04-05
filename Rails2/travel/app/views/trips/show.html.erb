@@ -4,8 +4,33 @@
   <%= @trip.place %>
 
   <strong> Purpose: </strong>
-  <%= @trip.purpose %>
+  <%= @trip.purpose %><br />
 
+	<% @trip.transportations.each do |transportation| %>
+
+		From: <%= transportation.from %></br>
+		To: <%= transportation.to %></br>
+		Mileage: <%= transportation.mileage %></br>
+		Amount: <%= transportation.amount %></br>
+		<%= link_to '<button type="button">Delete</button>'.html_safe, [transportation.trip, transportation],
+              method: :delete,
+              data: { confirm: 'Delete transportation?' } %>
+		<% end %>
+
+<%= form_for([@trip, @trip.transportations.build])  do |f| %>
+    
+    
+    <%= f.label :from %>
+    <%= f.text_field :from %>
+    <%= f.label :to %>
+    <%= f.text_field :to %>
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>
 
 
 

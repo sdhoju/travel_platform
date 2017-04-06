@@ -27,5 +27,4 @@ class TransportationsController < ApplicationController
   def transportation_params
     params.require(:transportation).permit(:from, :to, :mileage, :amount) 
   end
-
 end

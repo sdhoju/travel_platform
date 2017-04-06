@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang ="en">
   <head>
+  <style>
+  header, footer{
+    padding: 1em;
+    background: navy;
+    clear: left;
+    background-size: 100%,100%
+
+  }
+  body{
+    background-color: gainsboro;
+  }
+    
+  </style>
     <meta charset = "utf-8">
     <title>TravelWise</title>
     <%= csrf_meta_tags %>
@@ -9,19 +22,21 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-color:lightblue;">
+  <body >
 
-  <h1>
-   <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>
+<header>
+
+   <%= image_tag("IconBanner.png", :alt => "logo", size: "70") %>
   <%= link_to controller: 'welcome' do %>
-    <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>
-  <% end %>
+    <%= image_tag("Travel_Logo.png", :alt => "logo", width: "160", height: "70")%>
+  <% end %><br /><hr />
 
   <%= link_to '<button type="button">Trips</button>'.html_safe, controller: 'trips' %> 
   <%= link_to '<button type="button">Daily Expenses</button>'.html_safe, controller: 'transactions' %>
   <%= link_to '<button type="button">Reports</button>'.html_safe %><br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
+</header>
 
-  </h1>
     <%= yield %>
+   
   </body>
 </html>

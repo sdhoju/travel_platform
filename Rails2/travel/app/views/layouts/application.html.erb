@@ -1,7 +1,9 @@
 
-<<<<<<< HEAD
+
 
 <!DOCTYPE html> <html lang ="en">  
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
    <head> 
       <meta charset = "utf-8">   
           <title>TravelWise</title>   
@@ -56,45 +58,3 @@
                            </body> 
                       </html>
 
-=======
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-  <div id="wrapper">
-    <body style="background-color:#EDEDED;">
-    <div id="banner">
-    <br>
-      <h1>
-      <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>
-      <%= link_to controller: 'welcome' do %>
-      <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>
-      <% end %>
-      <hr></hr>
-      <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: 'trips' %> 
-      <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: 'transactions' %>
-      <%= link_to '<button class="btn">Reports</button>'.html_safe %>
-      
-      <style>
-        .btn{
-          background-color: #1C254C;
-          color: white;
-          float: left;
-          border: 1px solid #152244;
-          padding: 13px 30px;
-          text-align: center;
-          font-size: 15px;
-        }
-      </style>
-
-      <br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
-
-
-    </h1>
-    <%= yield %>
-  </body>
-
-    </div>
-  </body>
-</html>
->>>>>>> d042d984177c034b5e081cb9a33dd9350dcce1aa

@@ -19,7 +19,7 @@
             <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
               <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %>
               
-                     <hr />  
+                     <hr> </hr> 
                     
                  
                        <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
@@ -28,12 +28,12 @@
 
                         <% if user_signed_in? %>
                        <%= current_user.email %>
-                        <%= link_to '<button class="btn">Sign out</button>'.html_safe, destroy_user_session_path, :method => :delete %> 
+                      <%= link_to '<button class="btn">Sign out</button>'.html_safe, destroy_user_session_path, :method => :delete %> 
                       <% else %>  
                          <%= link_to '<button class="btn">Sign Up</button>'.html_safe, new_user_registration_path %> 
                      <%= link_to '<button class="btn">Sign in</button>'.html_safe, new_user_session_path %> 
                      <% end %> 
-                                  
+
                        <style>  
                          
                          .btn{       
@@ -48,6 +48,7 @@
                             }     
                            </style>      
                             <br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->     </h1>     
+                          
                            <%= yield %> 
                    
                             </div>  

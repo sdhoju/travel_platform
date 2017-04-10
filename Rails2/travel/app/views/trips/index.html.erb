@@ -9,11 +9,11 @@
 
   <% @trips.each do |trip| %>
     <tr>
-    
+    <% if trip.user == current_user %>
       <td><%= trip.place %></td>
       <td>$<%= trip.purpose %></td>
       <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
-
+    <% end %>
     </tr>
 
   <% end %>

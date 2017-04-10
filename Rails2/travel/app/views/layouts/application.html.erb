@@ -1,47 +1,55 @@
-<!DOCTYPE html>
-<html lang ="en">
-  <head>
-    <meta charset = "utf-8">
-    <title>TravelWise</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-  <div id="wrapper">
-    <body style="background-color:#EDEDED;">
-    <div id="banner">
-    <br>
-      <h1>
-      <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>
-      <%= link_to controller: 'welcome' do %>
-      <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>
-      <% end %>
-      <hr></hr>
-      <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: 'trips' %> 
-      <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: 'transactions' %>
-      <%= link_to '<button class="btn">Reports</button>'.html_safe %>
-      
-      <style>
-        .btn{
-          background-color: #1C254C;
-          color: white;
-          float: left;
-          border: 1px solid #152244;
-          padding: 13px 30px;
-          text-align: center;
-          font-size: 15px;
-        }
-      </style>
-
-      <br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->
+<!DOCTYPE html> <html lang ="en">  
+   <head> 
+      <meta charset = "utf-8">   
+          <title>TravelWise</title>   
+            <%= csrf_meta_tags %>  
+               <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
+                <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
+       </head> 
+       <body>  
+        <div id="wrapper">   
+        <body style="background-color:#EDEDED;">     <div id="banner">  
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
 
 
-    </h1>
-    <%= yield %>
-  </body>
+           <br>       <h1>      
+            <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
+              <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %>
+              
+                     <hr> </hr> 
+                    
+                 
+                       <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
+                       <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
+                       <%= link_to '<button class="btn">Reports</button>'.html_safe %>  
 
-    </div>
-  </body>
-</html>
+                        <% if user_signed_in? %>
+                       <%= current_user.email %>
+                      <%= link_to '<button class="btn">Sign out</button>'.html_safe, destroy_user_session_path, :method => :delete %> 
+                      <% else %>  
+                         <%= link_to '<button class="btn">Sign Up</button>'.html_safe, new_user_registration_path %> 
+                     <%= link_to '<button class="btn">Sign in</button>'.html_safe, new_user_session_path %> 
+                     <% end %> 
+
+                       <style>  
+                         
+                         .btn{       
+                              background-color: #1C254C;       
+                              color: white;           
+                              float: left;           
+                              border: 1px 
+                              solid #152244;           
+                              padding: 13px 30px;           
+                              text-align: center;           
+                              font-size: 15px;         
+                            }     
+                           </style>      
+                            <br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->     </h1>     
+                          
+                           <%= yield %> 
+                   
+                            </div>  
+                           </body> 
+                      </html>

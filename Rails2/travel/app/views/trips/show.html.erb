@@ -1,5 +1,5 @@
 <center>
-
+ <% if @trip.user == current_user %>
   <strong>Place : </strong>
   <%= @trip.place %>
 
@@ -30,5 +30,9 @@
 <%= link_to '<button type="button">Delete</button>'.html_safe, trip_path(@trip),
               method: :delete,
               data: { confirm: 'Delete trip?' } %>
+
  </center><br>
+ <%else%>
+<strong>Intruder</strong>
+<% end %>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>

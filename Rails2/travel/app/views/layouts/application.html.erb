@@ -1,55 +1,75 @@
-
 <!DOCTYPE html> <html lang ="en">  
-   <head> 
-      <meta charset = "utf-8">   
-          <title>TravelWise</title>   
-            <%= csrf_meta_tags %>  
-               <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
-                <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
-       </head> 
-       <body>  
-        <div id="wrapper">   
-        <body style="background-color:#EDEDED;">     <div id="banner">  
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+  <head> 
+    <meta charset = "utf-8">   
+      <title>TravelWise</title>   
+      <%= csrf_meta_tags %>  
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
+          <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
+  </head> 
+       
+  <body>  
+    <div id="wrapper">   
+      <body style="background-color:#EDEDED;">
+      <div id="banner">  
 
+      <% if user_signed_in? %> <!-- IF USER IS SIGNED IN SHOW THE FOLLOWING:-->
+        <font color=#EDEDED><p align="right"><%= current_user.email %>&nbsp;&nbsp;</font></p>
+        <p align="right"><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag("OffButton.png", size: "30") %>
+          <% end %></p>
 
-           <br>       <h1>      
-            <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
-              <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %>
-              
-                     <hr> </hr> 
-                    
-                 
-                       <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
-                       <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
-                       <%= link_to '<button class="btn">Reports</button>'.html_safe %>  
+        <h1>
 
-                        <% if user_signed_in? %>
-                       <%= current_user.email %>
-                      <%= link_to '<button class="btn">Sign out</button>'.html_safe, destroy_user_session_path, :method => :delete %> 
-                      <% else %>  
-                         <%= link_to '<button class="btn">Sign Up</button>'.html_safe, new_user_registration_path %> 
-                     <%= link_to '<button class="btn">Sign in</button>'.html_safe, new_user_session_path %> 
-                     <% end %> 
+        <div style="position: relative; bottom:50px">
+          <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
+          <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>
+        <div style="position: relative; bottom:40px">         
+          <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
+          <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
+          <%= link_to '<button class="btn">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>          
+          
+      <% else %> <!-- IF USER IS SIGNED OUT SHOW THE FOLLOWING:-->
+        <%= link_to '<button class="btn2">Sign Up</button>'.html_safe, new_user_registration_path %>
+        <%= link_to '<button class="btn2">Sign in</button>'.html_safe, new_user_session_path %>
+        <h1>
+          <div style="position: relative; bottom:-25px">
+          <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
+          <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>
+        <div style="position: relative; bottom:-44px">          
+          <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
+          <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
+          <%= link_to '<button class="btn">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>
+        
+        <% end %> 
 
-                       <style>  
+      <style>  
                          
-                         .btn{       
-                              background-color: #1C254C;       
-                              color: white;           
-                              float: left;           
-                              border: 1px 
-                              solid #152244;           
-                              padding: 13px 30px;           
-                              text-align: center;           
-                              font-size: 15px;         
-                            }     
-                           </style>      
-                            <br> <!-- ADD CONTROLLER WHEN WE HAVE IT-->     </h1>     
+        .btn{       
+          background-color: #1C254C;       
+          color: white;           
+          float: left;           
+          border: 1px 
+          solid #152244;           
+          padding: 13px 30px;           
+          text-align: center;           
+          font-size: 15px;         
+        } 
+
+        .btn2{       
+          background-color: #1C254C;       
+          color: white;   
+          float: right;       
+          border: 1px 
+          solid #152244;           
+          padding: 13px 30px;           
+          text-align: center;           
+          font-size: 15px;         
+        } 
+
+      </style>      
+      </h1><br><br><br>     
                           
-                           <%= yield %> 
+      <%= yield %> 
                    
-                            </div>  
-                           </body> 
-                      </html>
+    </div>  
+ </body> 
+ </html>

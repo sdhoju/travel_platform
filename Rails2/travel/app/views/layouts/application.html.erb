@@ -1,7 +1,8 @@
 <!DOCTYPE html> <html lang ="en">  
   <head> 
     <meta charset = "utf-8">   
-      <title>TravelWise</title>   
+      <title>Travel Wise</title>  
+      <%= favicon_link_tag 'IconBanner.png' %>
       <%= csrf_meta_tags %>  
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
           <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
@@ -17,53 +18,34 @@
         <p align="right"><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag("OffButton.png", size: "30") %>
           <% end %></p>
 
-        <h1>
+        
 
-        <div style="position: relative; bottom:50px">
+        <div style="position: relative; bottom:30px">
           <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
           <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>
-        <div style="position: relative; bottom:40px">         
-          <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
-          <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
-          <%= link_to '<button class="btn">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>          
+        <div style="position: relative; bottom:5px; float:left">         
+          <%= link_to '<button class="btn2">Trips</button>'.html_safe, controller: '/trips' %>       
+          <%= link_to '<button class="btn2">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
+          <%= link_to '<button class="btn2">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>          
           
       <% else %> <!-- IF USER IS SIGNED OUT SHOW THE FOLLOWING:-->
+      <div style="position: relative;float:right"> 
         <%= link_to '<button class="btn2">Sign Up</button>'.html_safe, new_user_registration_path %>
-        <%= link_to '<button class="btn2">Sign in</button>'.html_safe, new_user_session_path %>
+        <%= link_to '<button class="btn2">Sign in</button>'.html_safe, new_user_session_path %></div>
         <h1>
-          <div style="position: relative; bottom:-25px">
+          <div style="position: relative; bottom:-15px">
           <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
           <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>
-        <div style="position: relative; bottom:-44px">          
-          <%= link_to '<button class="btn">Trips</button>'.html_safe, controller: '/trips' %>       
-          <%= link_to '<button class="btn">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
-          <%= link_to '<button class="btn">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>
+        <div style="position: relative; bottom:-40px;float:left">          
+          <%= link_to '<button class="btn2">Trips</button>'.html_safe, controller: '/trips' %>       
+          <%= link_to '<button class="btn2">Daily Expenses</button>'.html_safe, controller: '/transactions' %>       
+          <%= link_to '<button class="btn2">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div>
         
         <% end %> 
 
       <style>  
                          
-        .btn{       
-          background-color: #1C254C;       
-          color: white;           
-          float: left;           
-          border: 1px 
-          solid #152244;           
-          padding: 13px 30px;           
-          text-align: center;           
-          font-size: 15px;         
-        } 
-
-        .btn2{       
-          background-color: #1C254C;       
-          color: white;   
-          float: right;       
-          border: 1px 
-          solid #152244;           
-          padding: 13px 30px;           
-          text-align: center;           
-          font-size: 15px;         
-        } 
+        
 
       </style>      
       </h1><br><br><br>     

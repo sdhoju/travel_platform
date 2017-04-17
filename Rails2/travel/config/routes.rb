@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'receipts/index'
+
+  get 'receipts/new'
+
+  get 'receipts/create'
+
+  get 'receipts/destroy'
+
 devise_for :users
 
  
@@ -7,7 +15,7 @@ resources :trips
 resources :trips do
 	resources :transportations
 end	 
-
+resources :receipts
 
 
  resources :transactions do

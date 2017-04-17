@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410190736) do
+ActiveRecord::Schema.define(version: 20170417200649) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20170410190736) do
     t.date     "day"
     t.text     "description", limit: 65535
     t.decimal  "amount",                    precision: 8, scale: 2
+  end
+
+  create_table "receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_receipts_on_imageable_type_and_imageable_id", using: :btree
   end
 
   create_table "registration_fees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

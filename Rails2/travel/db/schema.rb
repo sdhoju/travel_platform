@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170417200649) do
     t.decimal  "amount",                    precision: 8, scale: 2
   end
 
-  create_table "receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "attachment"
     t.string   "imageable_type"

@@ -39,7 +39,11 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+<<<<<<< HEAD
     autoprefixer-rails (6.7.7.2)
+=======
+    autoprefixer-rails (6.7.7.1)
+>>>>>>> master
       execjs
     bcrypt (3.1.11)
     bcrypt (3.1.11-x64-mingw32)
@@ -183,7 +187,11 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+<<<<<<< HEAD
+  bootstrap-sass
+=======
   bootstrap-sass (~> 3.3.6)
+>>>>>>> master
   byebug
   carrierwave
   coffee-rails (~> 4.2)

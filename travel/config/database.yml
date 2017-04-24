@@ -11,12 +11,12 @@
 #
 default: &default
   adapter: mysql2
- 
+
   pool: 5
   timeout: 5000
-  username: root
-  password: olemiss2017
-  host: localhost
+  username: Quadratic
+  password: Quadratic
+  host: turing.cs.olemiss.edu
 
 
 development:

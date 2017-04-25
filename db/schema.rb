@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170425045603) do
     t.index ["trip_id"], name: "index_other_expenses_on_trip_id", using: :btree
   end
 
-  create_table "receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "receipts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "attachment"
     t.string   "imageable_type"

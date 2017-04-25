@@ -1,0 +1,4 @@
+ <%= @receipt.name %>
+<%= image_tag(@receipt.attachment_url, width: "320", height: "320") %>
+<%= link_to "Download receipt", @receipt.attachment_url %>
+<br><br />

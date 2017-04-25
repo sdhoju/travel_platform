@@ -1,0 +1,35 @@
+ <center><h1>Transportation</h1>
+
+<table>
+  <tr>
+
+    <th>From</th>
+    <th>to</th>
+     <th>Mileage</th>
+    <th>Amount</th>
+
+  </tr>
+
+
+
+ <% @trip.transportations.each do |transportation| %>
+
+    <tr>
+    
+      <td><%= transportation.from %></td>
+      <td><%= transportation.to %></td>
+       <td><%= transportation.mileage %></td>
+      <td><%= transportation.amount %></td>
+      <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_transportation_path(@trip,transportation) %></td>
+    <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [transportation.trip, transportation],
+              method: :delete,
+              data: { confirm: 'Delete transportation?' } %></td>
+    </tr>
+
+
+  <% end %>
+</table>
+   
+   <td><%= link_to '<button type="button">back</button>'.html_safe, trip_path(@trip) %></td>
+</center>
+  

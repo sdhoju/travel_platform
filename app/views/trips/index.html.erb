@@ -1,0 +1,25 @@
+<br>
+<center><h1>Trips</h1>
+
+<table>
+  <tr>
+
+    <th>Place</th>
+    <th>Purpose</th>
+  </tr>
+
+  <% @trips.each do |trip| %>
+    <tr>
+    <% if trip.user == current_user %>
+      <td><%= trip.place %></td>
+      <td>$<%= trip.purpose %></td>
+      <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
+    <% end %>
+    </tr>
+
+  <% end %>
+</table>
+   
+  <%= link_to '<button type="button">Create new Trip</button>'.html_safe, new_trip_path %> 
+</center>
+  

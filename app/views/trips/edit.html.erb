@@ -1,0 +1,7 @@
+<center>
+ <% if @trip.user == current_user %>
+<h3>Edit this trip </h3><br>
+<%= render 'form' %>
+<%end%>
+</center><br>
+<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips', class: 'button' %>

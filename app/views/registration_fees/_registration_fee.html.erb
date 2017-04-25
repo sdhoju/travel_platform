@@ -1,0 +1,4 @@
+	Fee: <%= registration_fee.name %>
+	Amount: <%= registration_fee.amount %>
+		
+<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_registration_fee_receipt_path(@trip,registration_fee) %><br><br />

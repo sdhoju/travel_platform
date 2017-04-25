@@ -1,0 +1,24 @@
+<%= form_for @transaction do |f| %>
+    <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@transaction.errors.count, "error") %> prohibited
+        this transaction from being saved:
+      </h2>
+      <ul>
+        <% @transaction.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+    <%= f.collection_select :dcategory_id, Dcategory.all, :id, :name, {promt: "Chose your Daily expenses"} %>
+    <%= f.label :Detail %>
+    <%= f.text_field :item %>
+    
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>

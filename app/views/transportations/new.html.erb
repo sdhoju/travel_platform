@@ -1,0 +1,26 @@
+
+<br />
+<br /><br /><center>
+<%= form_for([@trip, @trip.transportations.build])  do |f| %>
+    
+ 
+
+    <%= f.label :from %>
+    <%= f.text_field :from %><br>
+    <%= f.label :to %>
+    <%= f.text_field :to %><br>
+    <%= f.label :mileage %>
+    <%= f.text_field :mileage %><br>
+    <%= f.label :amount %>
+    <%= f.text_field :amount %><br>
+    <%= f.label :airfare %>
+    <%= f.text_field :airfare %><br>
+    <%= f.label :rental_car %>
+    <%= f.text_field :rental_car %><br>
+    <%= f.label :bus_train %>
+    <%= f.text_field :bus_train %><br>
+    <%= f.submit %>
+
+<% end %>
+
+</center>

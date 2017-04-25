@@ -1,0 +1,16 @@
+		
+
+
+		From: <%= transportation.from %>
+		To: <%= transportation.to %>
+		Mileage: <%= transportation.mileage %>
+		Amount: $<%= transportation.amount %>
+		Airfare: <%= transportation.airfare %>
+		Rental: <%= transportation.rental_car %>
+		bus_train: <%= transportation.bus_train %>
+
+		
+
+
+
+<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,transportation) %>

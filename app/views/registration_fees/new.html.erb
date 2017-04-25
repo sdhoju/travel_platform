@@ -1,0 +1,10 @@
+<%= form_for([@trip, @trip.registration_fees.build])  do |f| %>
+    
+    <%= f.label :Fee %>
+    <%= f.text_field :name %>
+    
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>

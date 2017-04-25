@@ -1,6 +1,17 @@
 <center>
 
 <h3>Edit this transaction </h3><br>
-<%= render 'form' %>
+<%= form_for [@trip, @transactions] do |f| %>
+   
+    
+    <%= f.collection_select :dcategory_id, Dcategory.all, :id, :name, {promt: "Chose your Daily expenses"} %>
+    <%= f.label :Detail %>
+    <%= f.text_field :item %>
+    
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>
 </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

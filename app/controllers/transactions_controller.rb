@@ -1,33 +1,25 @@
 class TransactionsController < ApplicationController
  
  def index
-    @transactions = Transaction.all
+   @trip = Trip.find(params[:trip_id])
+    @transactions = @trip.transactions.all
   end
- def show
-    @transaction = Transaction.find(params[:id])
-  end
-
   def new
-    @transaction = Transaction.new
+   @trip = Trip.find(params[:trip_id])
+    @transactions = @trip.transactions.new
   end
-  def edit
-      @transaction = Transaction.find(params[:id])
-  end
-
+  def show
+     @trip = Trip.find(params[:trip_id])
+      @transaction = @trip.transactions.find(params[:id])
+    end
  def create
- 
-
-  @transaction = Transaction.new(transaction_params)
- 
- if @transaction.save
-  redirect_to @transaction
-else
-  render 'new'
-
-end
-end
-def update
-  @transaction = Transaction.find(params[:id])
+    @trip = Trip.find(params[:trip_id])
+    @transaction =@trip.transactions.create(transaction_params)
+    redirect_to trip_path(@trip)
+  end
+  def update
+    @trip = Trip.find(params[:trip_id])
+  @transaction = @trip.transactions.find(params[:id])
  
   if @transaction.update(transaction_params)
     redirect_to @transaction
@@ -35,12 +27,15 @@ def update
     render 'edit'
   end
 end
- def destroy
-    @transaction = Transaction.find(params[:id])
+   def destroy
+    @trip = Trip.find(params[:trip_id])
+    @transaction = @trip.transactions.find(params[:id])
     @transaction.destroy
- 
-    redirect_to transactions_path
+    redirect_to trip_path(@trip)
   end
+
+
+ 
  private
   def transaction_params
     params.require(:transaction).permit(:item, :amount, :dest, :dcategory_id)

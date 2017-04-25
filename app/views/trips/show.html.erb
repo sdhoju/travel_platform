@@ -11,6 +11,11 @@
   </h1>
 </p>
 
+<p><h2>Daily Expenses </h2>
+    <%= render @trip.transactions%>
+<%= link_to '<button type="button">View transportation </button>'.html_safe, trip_transactions_path(@trip) %><br>
+<%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transaction_path(@trip) %>
+</p>
 
 <p><h2>Transportation</h2>
     <%= render @trip.transportations%>

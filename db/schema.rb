@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424232137) do
+ActiveRecord::Schema.define(version: 20170425045603) do
 
   create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at",                         null: false
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 20170424232137) do
     t.datetime "updated_at",                  null: false
     t.string   "dest"
     t.integer  "dcategory_id"
+    t.integer  "trip_id"
+    t.index ["trip_id"], name: "index_transactions_on_trip_id", using: :btree
   end
 
   create_table "transportations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -116,5 +118,6 @@ ActiveRecord::Schema.define(version: 20170424232137) do
 
   add_foreign_key "other_expenses", "trips"
   add_foreign_key "registration_fees", "trips"
+  add_foreign_key "transactions", "trips"
   add_foreign_key "transportations", "trips"
 end

@@ -1,5 +1,5 @@
 <%= form_for ([@trip, @trip.transactions.build]) do |f| %>
-   
+
     
     <%= f.collection_select :dcategory_id, Dcategory.all, :id, :name, {promt: "Chose your Daily expenses"} %>
     <%= f.label :Detail %>

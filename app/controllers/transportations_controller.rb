@@ -28,6 +28,6 @@ class TransportationsController < ApplicationController
   end
  private
   def transportation_params
-    params.require(:transportation).permit(:from, :to, :mileage, :amount) 
+    params.require(:transportation).permit(:from, :to, :mileage, :amount, :airfare, :rental_car, :bus_train ) 
   end
 end

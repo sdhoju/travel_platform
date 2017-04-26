@@ -16,7 +16,9 @@
       <td><%= transaction.item %></td>
       <td>$<%= transaction.amount %></td>
       <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_transaction_path(@trip,transaction) %></td>
-
+      <td><%= link_to '<button type="button">Delete</button>'.html_safe, [transaction.trip, transaction],
+              method: :delete,
+              data: { confirm: 'Delete transaction?' } %></td>
     </tr>
  
 

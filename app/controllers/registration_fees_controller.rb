@@ -9,7 +9,7 @@ def index
   end
   def show
   	 @trip = Trip.find(params[:trip_id])
-  	  @registration_fee = @trip.registration_fees.find(params[:id])
+  	 @registration_fee = @trip.registration_fees.find(params[:id])
   	end
  def create
     @trip = Trip.find(params[:trip_id])
@@ -25,6 +25,6 @@ def index
   end
  private
   def registration_fee_params
-    params.require(:registration_fee).permit(:type, :amount) 
+    params.require(:registration_fee).permit(:name, :amount) 
   end
 end

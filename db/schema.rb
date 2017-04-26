@@ -10,23 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425045603) do
-
-  create_table "daily_expenses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "type"
-    t.date     "day"
-    t.decimal  "amount",     precision: 8, scale: 2
-  end
+ActiveRecord::Schema.define(version: 20170426194909) do
 
   create_table "dcategories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,12 +44,8 @@ ActiveRecord::Schema.define(version: 20170425045603) do
     t.string   "name"
     t.decimal  "amount",     precision: 8, scale: 2
     t.integer  "trip_id"
+    
     t.index ["trip_id"], name: "index_registration_fees_on_trip_id", using: :btree
-  end
-
-  create_table "totals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -77,16 +60,17 @@ ActiveRecord::Schema.define(version: 20170425045603) do
   end
 
   create_table "transportations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.date     "day"
     t.string   "from"
     t.string   "to"
     t.integer  "mileage"
-    t.decimal  "amount",     precision: 8, scale: 2
-    t.decimal  "airfare",    precision: 8, scale: 2
-    t.decimal  "rental_car", precision: 8, scale: 2
-    t.decimal  "bus_train",  precision: 8, scale: 2
+    t.decimal  "amount",     precision: 8,  scale: 2
+   
+    t.decimal  "airfare",    precision: 10
+    t.decimal  "rental_car", precision: 10
+    t.decimal  "bus_train",  precision: 10
     t.integer  "trip_id"
     t.index ["trip_id"], name: "index_transportations_on_trip_id", using: :btree
   end

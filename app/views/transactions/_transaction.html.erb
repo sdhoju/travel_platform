@@ -10,7 +10,7 @@
 
 
 
-<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_transaction_path(@trip,transaction) %> 
+
 <%= link_to '<button type="button">Delete</button>'.html_safe, trip_transaction_path(transaction),
               method: :delete,
               data: { confirm: 'Delete data?' } %>

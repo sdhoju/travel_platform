@@ -7,9 +7,18 @@ Rails.application.routes.draw do
 
   get 'receipts/destroy'
 
+  get 'trips/excel' => 'trips#excel'
+
+
 devise_for :users
 
  
+#resources :trips do
+#	member do:
+#		get 'excel'
+#	end
+#end
+
 resources :trips 
 
 resources :trips do

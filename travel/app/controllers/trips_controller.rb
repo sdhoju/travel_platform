@@ -1,6 +1,5 @@
 class TripsController < ApplicationController
 before_action :authenticate_user!
-
  def index
     @trips = Trip.all
   end
@@ -38,6 +37,21 @@ end
  def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
+    redirect_to trips_path
+  end
+  def excel
+    #@trip = Trip.find(params[:id])
+    require 'rubygems'
+    require 'rubyXL'
+    workbook = RubyXL::Parser.parse("../../Form.xlsx")
+    worksheet = workbook[0]
+    #Contact Person
+    cellCP = worksheet.sheet_data[2][4]
+    cellCP.change_contents('Sameer Dhoju')
+    #Purpose
+    cellPurpose = worksheet.sheet_data[4][1]
+    cellPurpose.change_contents('Fun')
+    workbook.write("../../Form.xlsx")
     redirect_to trips_path
   end
  private

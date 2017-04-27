@@ -30,6 +30,8 @@
 <%= link_to '<button type="button">Delete</button>'.html_safe, trip_path(@trip),
               method: :delete,
               data: { confirm: 'Delete trip?' } %>
+<%= link_to '<button type="button">Excel</button>.html_safe', {:controller => 'trips', :action => 'excel'} %>
+
 
  </center><br>
  <%else%>

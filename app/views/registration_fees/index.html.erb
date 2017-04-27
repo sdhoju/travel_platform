@@ -1,31 +1,29 @@
- <center><h1>Registration Fee</h1>
+<br>
+<center><h1>Registration Fees</h1></center>
 
-<table>
-  <tr>
-
-     <th>name</th>
-    <th>Amount</th>
-
-  </tr>
-
-
-
- <% @trip.registration_fees.each do |registration_fee| %>
-
-    <tr>
-
-       <td><%= registration_fee.name %></td>
-      <td><%= registration_fee.amount %></td>
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Name</th>
+         <th>Amount</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @trip.registration_fees.each do |registration_fee| %>
+         <tr>
+            <td><%= registration_fee.name %></td>
+            <td><%= registration_fee.amount %></td>
             <td><%= link_to '<button type="button">Show</button>'.html_safe, [@trip,registration_fee] %></td>
-
-    <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [registration_fee.trip, registration_fee],
+            <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [registration_fee.trip, registration_fee],
               method: :delete,
               data: { confirm: 'Delete registration_fee?' } %></td>
-    </tr>
-
-
-  <% end %>
-</table>
+         </tr>
+         
+      <% end %>
+   </tbody>
    
- <%= link_to '<button type="button">BAck to trips</button>'.html_safe, trip_path(@trip) %><br><br /></center>
+</table>
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<%= link_to '<button type="button">Add Registration Fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %>
   

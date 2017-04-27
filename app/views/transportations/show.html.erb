@@ -1,14 +1,15 @@
-<br /><p><center>
-		From: <%= @transportation.from %>
-		To: <%= @transportation.to %>
-		Mileage: <%= @transportation.mileage %>
-		Amount: $<%= @transportation.amount %>
-		Airfare: <%= @transportation.airfare %>
-		Rental: <%= @transportation.rental_car %>
-		bus_train: <%= @transportation.bus_train %>
+<br><br>
+<div style="padding-left: 8px">
+<strong>From:</strong> <%= @transportation.from %><br>
+<strong>To:</strong> <%= @transportation.to %><br>
+<strong>Mileage:</strong> <%= @transportation.mileage %><br>
+<strong>Amount:</strong> $<%= @transportation.amount %><br>
+<strong>Airfare:</strong> <%= @transportation.airfare %><br>
+<strong>Rental:</strong> <%= @transportation.rental_car %><br>
+<strong>Bus/Train:</strong> <%= @transportation.bus_train %><br><br>
 		
-<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,@transportation) %><br><br />
+<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,@transportation) %>
 
- <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_transportation_receipts_path(@trip, @transportation) %><br><br />
- <%= link_to '<button type="button">BAck</button>'.html_safe, [@trip] %><br><br />
-</p>
+<%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_transportation_receipts_path(@trip, @transportation) %><br><br />
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_transportations_path(@trip) %><br><br />
+</div>

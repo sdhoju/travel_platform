@@ -12,7 +12,7 @@
   <% @trip.transactions.each do |transaction| %>
     <tr>
     <td><%= @inc+=1 %></td>
-    <td><%= transaction.dcategory.name %></td>
+    
       <td><%= transaction.item %></td>
       <td>$<%= transaction.amount %></td>
       <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_transaction_path(@trip,transaction) %></td>

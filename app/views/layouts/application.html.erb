@@ -29,8 +29,8 @@
           <%= link_to '<button class="btn2">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div><br><br>          
       <% else %> <!-- IF USER IS SIGNED OUT SHOW THE FOLLOWING:-->
       <div style="position: relative;float:right;z-index: 1"> 
-        <%= link_to '<button class="btn2">Sign Up</button>'.html_safe, new_user_registration_path %>
-        <%= link_to '<button class="btn2">Sign in</button>'.html_safe, new_user_session_path %></div>
+        <%= link_to '<button class="btn3">Sign Up</button>'.html_safe, new_user_registration_path %><br>
+        <%= link_to '<button class="btn3">&nbsp;Sign In&nbsp;</button>'.html_safe, new_user_session_path %></div>
       
           <div style="position: relative; bottom:-22px">
           <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
@@ -43,5 +43,5 @@
       <%= yield %> 
                    
     </div>
- </body> 
+ </body>
  </html>

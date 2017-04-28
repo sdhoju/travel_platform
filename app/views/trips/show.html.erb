@@ -1,7 +1,6 @@
-<p ><center><h1>
+<br><p><center><h1>
  <% if @trip.user == current_user %>
-  <strong>Place : </strong>
-  <%= @trip.place %>
+  <%= @trip.place %> Trip
   </h1>
 </p>
 
@@ -130,13 +129,14 @@ window.onclick = function(event) {
   }
 }
 </script>
+<br> 
 
 
 
-<%= link_to '<button type="button">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
-<%= link_to '<button type="button">Delete Trip</button>'.html_safe, trip_path(@trip),
+<%= link_to '<button class="btn2">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
+<%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip),
               method: :delete,
-              data: { confirm: 'Delete trip?' } %>
+              data: { confirm: 'Delete trip?' } %> 
 
  </center><br>
  <%else%>

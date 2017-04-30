@@ -11,26 +11,34 @@
   </h1>
 </p>
 
+
+
+
+<%= link_to '<button type="button">Add Transaction expense</button>'.html_safe, new_trip_transaction_path(@trip), id: "add_transaction", remote: true %><br>
+<%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip),id: "add_transportation", remote: true %><br>
+<%= link_to '<button type="button">Add Other Expenses</button>'.html_safe, new_trip_other_expense_path(@trip)  %><br>
+<%= link_to '<button type="button">Add registration fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %><br>
+
 <p><h2>Daily Expenses </h2>
     <%= render @trip.transactions%>
 <%= link_to '<button type="button">View transportation </button>'.html_safe, trip_transactions_path(@trip) %><br>
-<%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transaction_path(@trip) %>
+
 </p>
 
 <p><h2>Transportation</h2>
     <%= render @trip.transportations%>
 <%= link_to '<button type="button">View transportation </button>'.html_safe, trip_transportations_path(@trip) %><br>
-<%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip) %>
+
 </p>
 <p><h2>Registration fee</h2>
     <%= render @trip.registration_fees %><br />
     <%= link_to '<button type="button">View registration fees </button>'.html_safe, trip_registration_fees_path(@trip) %><br>
-    <%= link_to '<button type="button">Add registration fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %>
+  
 </p>
 <p><h2>Other Expenses</h2>
     <%= render @trip.other_expenses %>
     <%= link_to '<button type="button">View Other Expenses </button>'.html_safe, trip_other_expenses_path(@trip) %><br>
-    <%= link_to '<button type="button">Add Other Expenses</button>'.html_safe, new_trip_other_expense_path(@trip) %>
+  
     </p>
 
 <br>

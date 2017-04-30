@@ -18,7 +18,11 @@ class TransportationsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
 
     @transportation =@trip.transportations.create(transportation_params)
-    redirect_to trip_path(@trip)
+    respond_to do |format|
+      format.html{   redirect_to trip_path(@trip)
+      format.js
+    }
+ end
   end
    def destroy
    	@trip = Trip.find(params[:trip_id])

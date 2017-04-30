@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426221251) do
+ActiveRecord::Schema.define(version: 20170427012706) do
 
   create_table "dcategories", force: :cascade do |t|
     t.string   "name"
@@ -19,9 +19,12 @@ ActiveRecord::Schema.define(version: 20170426221251) do
   end
 
   create_table "other_expenses", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "trip_id"
+    t.date     "day"
+    t.string   "description"
+    t.decimal  "amount",      precision: 8, scale: 2
     t.index ["trip_id"], name: "index_other_expenses_on_trip_id"
   end
 
@@ -40,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170426221251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "trip_id"
+    t.decimal  "amount"
     t.index ["trip_id"], name: "index_registration_fees_on_trip_id"
   end
 

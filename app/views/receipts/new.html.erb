@@ -1,25 +1,4 @@
 <br>
-<%= form_for ([@tripped, @imageable, @receipt]) do |f| %>
-<% if !@receipt.errors.empty? %>
-   <div class = "alert alert-error">
-      
-      <ul>
-         <% @receipt.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-         <% end %>
-      </ul>
-      
-   </div>
-<% end %>
-<div class = "well">
-   
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      <br><br>
-      <%= f.label :attachment %>
-      <%= f.file_field :attachment %>
-      <br>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-   <% end %>
+<%= render "form" %>
 </div
 <br><br />

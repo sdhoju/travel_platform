@@ -38,7 +38,7 @@ end
  
  private
   def transaction_params
-    params.require(:transaction).permit(:item, :amount, :dest, :dcategory_id)
+    params.require(:transaction).permit(:item, :amount, :dest)
   end
 
 end

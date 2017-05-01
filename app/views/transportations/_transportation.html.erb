@@ -1,16 +1,18 @@
 		
 
-
-		From: <%= transportation.from %>
-		To: <%= transportation.to %>
-		Mileage: <%= transportation.mileage %>
-		Amount: $<%= transportation.amount %>
-		Airfare: <%= transportation.airfare %>
-		Rental: <%= transportation.rental_car %>
-		bus_train: <%= transportation.bus_train %>
+<tr>
+		<td>From: <%= transportation.from %></td>
+		<td>To: <%= transportation.to %></td>
+	<td>	Mileage: <%= transportation.mileage %></td>
+	<td>	Amount: $<%= transportation.amount %> </td>
+	</tr><tr>
+	<td>	Airfare: <%= transportation.airfare %></td>
+	<td>	Rental: <%= transportation.rental_car %></td>
+	<td>	bus_train: <%= transportation.bus_train %></td>
 
 		
 
 
 
-<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,transportation) %>
+<td><%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,transportation) %></td>
+</tr>

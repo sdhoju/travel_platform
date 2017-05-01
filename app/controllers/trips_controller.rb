@@ -32,7 +32,7 @@ def update
   if @trip.update(trip_params)
     redirect_to @trip
   else
-    render 'edit'
+ s   reer 'edit'
   end
 end
 
@@ -41,13 +41,12 @@ end
     @trip.destroy
     redirect_to trips_path
   end
-    def download
-  
-    send_file "Excel/trip_#{id}.xlsx", :type=>"application/xlsx", :x_sendfile => true
+    def download    
+    send_file "Excel/trip_#{id}.xlsx", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
+
   end
  private
-
-  def id
+def id
       resource,id = request.path.split('/')[1,2]
     @name=id
   end

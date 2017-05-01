@@ -1,16 +1,16 @@
-<center>
+
+<tr>
+
+ <td><strong> Amount: </strong>
+  <%= transaction.item %></td>
+  <td><strong> Amount: </strong>
+  $<%= transaction.amount %></td>
 
 
-  <strong>Detail : </strong>
-  <%= transaction.item %>
-
-  <strong> Amount: </strong>
-  $<%= transaction.amount %>
-
-
-
+<td>
 
 <%= link_to '<button type="button">Delete</button>'.html_safe, trip_transaction_path(transaction),
               method: :delete,
-              data: { confirm: 'Delete data?' } %>
- </center><br>
+              data: { confirm: 'Delete data?' } %></td>
+
+</tr>

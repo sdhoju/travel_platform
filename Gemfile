@@ -65,3 +65,4 @@ gem 'devise'
 gem 'carrierwave'
 gem "fog"
 gem 'rubyXL'
+gem 'rails_12factor'

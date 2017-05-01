@@ -7,6 +7,7 @@ devise_for :users
 
 
 resources :trips do
+	get 'download'
 	resources :transactions
 	
 	resources :transportations do

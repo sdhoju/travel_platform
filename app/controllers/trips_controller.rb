@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+#before_action :set_trip, only: [:show, :edit, :update, :destroy, :download]
 before_action :authenticate_user!
 
  def index
@@ -40,7 +41,17 @@ end
     @trip.destroy
     redirect_to trips_path
   end
+    def download
+  
+    send_file "Excel/trip_#{id}.xlsx", :type=>"application/xlsx", :x_sendfile => true
+  end
  private
+
+  def id
+      resource,id = request.path.split('/')[1,2]
+    @name=id
+  end
+
   def trip_params
     params.require(:trip).permit(:place, :purpose)
   end

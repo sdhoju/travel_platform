@@ -1,7 +1,7 @@
 module TripsHelper
 def rubyxl(trip)
 	@trip =trip
-Rails.root.join "app", "asset", "Form.xlsx"
+Rails.root.join "app", "assets", "Form.xlsx"
 workbook = RubyXL::Parser.parse("Form.xlsx")
 
 workbooknew =workbook 
@@ -15,11 +15,11 @@ cellSAP.change_contents('1056')
 
 #name
 cellName = worksheet.sheet_data[0][7]
-cellName.change_contents(trip.user.email)
+cellName.change_contents(trip.place)
 
 #email
 cellEmail = worksheet.sheet_data[1][7]
-cellEmail.change_contents(trip.amount)
+cellEmail.change_contents(trip.purpose)
 
 #dept
 cellDept = worksheet.sheet_data[2][7]
@@ -95,9 +95,71 @@ cellAmnt8.change_contents('43.24')
 cellAmnt9 = worksheet.sheet_data[19][5]
 cellAmnt9.change_contents('12.69')
 
+#Transportation
+i=23
+j=4
+@trip.transportations.each do |transportation|
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.from)
+	j=j+2
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.to)
+	j=j+2
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.mileage)
+	j=j+1
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.amount)
+	j=j+1
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.airfare)
+	j=j+1
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.rental_car)
+	j=j+1
+	cellAmnt9 = worksheet.sheet_data[i][j]
+	cellAmnt9.change_contents(transportation.bus_train)
 
 
-workbook.write("Excel/"+trip.place+".xlsx")
+
+	j=4
+	i=i+1
+end
+
+#Registration fee
+@trip.registration_fees.each do |rf|
+	if(rf.name=="Conference Fee")
+		celloeday = worksheet.sheet_data[35][4]
+		celloeday.change_contents(rf.amount)
+	elsif (rf.name=="Banquet Fee")
+		celloeday = worksheet.sheet_data[36][4]
+		celloeday.change_contents(rf.amount)
+	elsif (rf.name=="Dues")
+		celloeday = worksheet.sheet_data[37][4]
+		celloeday.change_contents(rf.amount)	
+	end
+end	
+celloetotal = worksheet.sheet_data[39][4]
+celloetotal.change_contents(RegistrationFee.sum(:'amount'))
+
+#other Expenses
+i=35
+j=9
+@trip.other_expenses.each do |oe|
+	celloeday = worksheet.sheet_data[i][j]
+	celloeday.change_contents(oe.day)
+	j=j+1
+	celloedesc = worksheet.sheet_data[i][j]
+	celloedesc.change_contents(oe.description)
+	j=j+2
+	celloeamt = worksheet.sheet_data[i][j]
+	celloeamt.change_contents(oe.amount)
+	i=i+1
+end	
+celloetotal = worksheet.sheet_data[39][12]
+celloetotal.change_contents(OtherExpense.sum(:'amount'))
+
+workbook.write("Excel/trip_#{@trip.id}.xlsx")
 
 
 end

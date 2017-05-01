@@ -25,6 +25,6 @@ def index
   end
  private
   def other_expense_params
-    params.require(:other_expense).permit(:day, :discription, :amount) 
+    params.require(:other_expense).permit(:day, :description, :amount) 
   end
 end

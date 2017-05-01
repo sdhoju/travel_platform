@@ -12,7 +12,7 @@
 </p>
 
 
-
+<br><%= rubyxl(@trip)><br>
 
 <%= link_to '<button type="button">Add Transaction expense</button>'.html_safe, new_trip_transaction_path(@trip), id: "add_transaction", remote: true %><br>
 <%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip),id: "add_transportation", remote: true %><br>

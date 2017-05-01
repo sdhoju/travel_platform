@@ -1,17 +1,14 @@
 <br><p><center><h1>
- <% if @trip.user == current_user %>
+ 
   <%= @trip.place %> Trip
   </h1>
 </p>
 
-<<<<<<< HEAD
-<p ><center><h1>
- <% if @trip.user == current_user %>
-  <strong>Place : </strong>
-  <%= @trip.place %>
-=======
-
-
+<p>
+<% rubyxl(@trip) %>
+  
+<%= link_to 'Excel', trip_download_path(@trip) %>
+</p>
 <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Daily Expenses</button>
   <div id="myDropdown" class="dropdown-content">
@@ -19,7 +16,7 @@
     <w><%= link_to '<button type="button4">Add New Expense</button>'.html_safe, new_trip_transaction_path(@trip) %></w>
   </div>
 </div>
->>>>>>> 01352903dc8d7d7060fc8d6130a5e1235ca12165
+
 
 <div class="dropdown">
 <button onclick="myFunction1()" class="dropbtn">Transportation</button>
@@ -29,58 +26,9 @@
   </div>
 </div>
 
-<<<<<<< HEAD
-<div>
 
-<%= link_to '<button type="button">Add Transaction expense</button>'.html_safe, new_trip_transaction_path(@trip), id: "add_transaction", remote: true %>
-<%= link_to '<button type="button">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip),id: "add_transportation", remote: true %><br>
-<%= link_to '<button type="button">Add Other Expenses</button>'.html_safe, new_trip_other_expense_path(@trip)  %>
-<%= link_to '<button type="button">Add registration fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %>
-</div>
-<hr />
-<table>
-<tr>
 
-  <td>Download Excel</td><td></td>
 
-  <% rubyxl(@trip) %>
-  
-  <td> <%= link_to_if (@trip.user == current_user  ) ,'Excel', trip_download_path(@trip) %></td><br>
-</tr>
-<tr>
-<td>Daily Expenses </td>
-<td><%= link_to '<button type="button">View transportation </button>'.html_safe, trip_transactions_path(@trip) %></td>
-</tr>
-<tr>
-<%= render @trip.transactions%>
-</tr>
-
-<tr>
-    <td>Transportation</td>
-    <td><%= link_to '<button type="button">View transportation </button>'.html_safe, trip_transportations_path(@trip) %></td>
-</tr>
-<tr>
-<%= render @trip.transportations%>
-</tr>
-
-</table>
-
-<p><h2></h2>
-    
-<br>
-
-</p>
-<p><h2>Registration fee</h2>
-    <%= render @trip.registration_fees %><br />
-    <%= link_to '<button type="button">View registration fees </button>'.html_safe, trip_registration_fees_path(@trip) %><br>
-  
-</p>
-<p><h2>Other Expenses</h2>
-    <%= render @trip.other_expenses %>
-    <%= link_to '<button type="button">View Other Expenses </button>'.html_safe, trip_other_expenses_path(@trip) %><br>
-  
-    </p>
-=======
 <div class="dropdown">
 <button onclick="myFunction2()" class="dropbtn">Registration</button>
   <div id="myDropdown2" class="dropdown-content">
@@ -172,7 +120,6 @@ toggle between hiding and showing the dropdown content */
 function myFunction3() {
     document.getElementById("myDropdown3").classList.toggle("show");
 }
->>>>>>> 01352903dc8d7d7060fc8d6130a5e1235ca12165
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
@@ -201,6 +148,3 @@ window.onclick = function(event) {
  
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>
  </center><br>
- <%else%>
-<strong>Intruder</strong>
-<% end %>

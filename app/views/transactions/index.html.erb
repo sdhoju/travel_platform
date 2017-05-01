@@ -1,5 +1,6 @@
 <br>
 <center><h1>Daily Expenses</h1>
+<h4>Total = $<%= Transaction.sum(:'amount') %></h4></center>
 
 <table>
   <tr>
@@ -25,7 +26,25 @@
   <% end %>
 </table>
 Total = $<%= Transaction.sum(:'amount') %><br>
+
    
-  <%= link_to '<button type="button">Add New</button>'.html_safe, new_trip_transaction_path %> 
-</center>
+   <tbody>
+      <% @trip.transactions.each do |transactions| %>
+         
+         <tr>
+            <td><%= transactions.dcategory.name %></td>
+            <td><%= transactions.item %></td>
+            <td>$<%= transactions.amount %></td>
+            <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [transactions.trip, transactions],
+              method: :delete,
+              data: { confirm: 'Delete expense?' } %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<%= link_to '<button type="button">Add New Expense</button>'.html_safe, new_trip_transaction_path %>
   

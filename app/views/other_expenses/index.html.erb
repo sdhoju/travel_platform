@@ -1,34 +1,32 @@
- <center><h1>Other</h1>
+<br>
+<center><h1>Other Expenses</h1></center>
 
-<table>
-  <tr>
-
-    <th>DAy</th>
-
-     <th>Discription</th>
-    <th>Amount</th>
-
-  </tr>
-
-
-
- <% @trip.other_expenses.each do |other_expense| %>
-
-    <tr>
-    
-      <td><%= other_expense.day %></td>
-      <td><%= other_expense.description %></td>
-      <td><%= other_expense.amount %></td>
-      <td><%= link_to '<button type="button">Show</button>'.html_safe, [@trip,other_expense] %></td>
-
-    <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [other_expense.trip, other_expense],
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Date</th>
+         <th>Description</th>
+         <th>Amount</th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @trip.other_expenses.each do |other_expense| %>
+         
+         <tr>
+            <td><%= other_expense.day %></td>
+            <td><%= other_expense.description %></td>
+            <td>$<%= other_expense.amount %></td>
+            <td><%= link_to '<button type="button">Show</button>'.html_safe, [@trip,other_expense] %></td>
+            <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [other_expense.trip, other_expense],
               method: :delete,
               data: { confirm: 'Delete other_expense?' } %></td>
-    </tr>
-
-
-  <% end %>
-</table>
+         </tr>
+         
+      <% end %>
+   </tbody>
    
-   <td><%= link_to '<button type="button">back</button>'.html_safe, trip_path(@trip) %></td>
-</center>
+</table>
+
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<%= link_to '<button type="button">Add New Other Expense</button>'.html_safe, new_trip_other_expense_path(@trip) %>

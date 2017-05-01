@@ -1,29 +1,32 @@
 <br>
-<center><h1>Trips</h1>
-
-<table>
-  <tr>
-
-    <th>Place</th>
-    <th>Purpose</th>
-  </tr>
-
-  <% @trips.each do |trip| %>
-    <tr>
-    <% if trip.user == current_user %>
-      <td><%= trip.place %></td>
-      <td>$<%= trip.purpose %></td>
-      <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
-    <% end %>
-    </tr>
-
-  <% end %>
-</table>
-<hr />
-
+<center><h1>Trips</h1></center>
 
 
 
   <%= link_to '<button type="button">Create new Trip</button>'.html_safe, new_trip_path,  id: "add_trip", remote: true %> 
-</center>
+
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Place</th>
+         <th>Purpose</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+      <% @trips.each do |trip| %>
+         
+         <tr>
+            <td><%= trip.place %></td>
+            <td><%= trip.purpose %></td>
+            <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>
+<%= link_to '<button type="button">Add new Trip</button>'.html_safe, new_trip_path %> 
+
   

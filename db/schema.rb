@@ -28,7 +28,9 @@ ActiveRecord::Schema.define(version: 20170427012706) do
     t.index ["trip_id"], name: "index_other_expenses_on_trip_id"
   end
 
+
   create_table "receipts", force: :cascade do |t|
+
     t.string   "name"
     t.string   "attachment"
     t.string   "imageable_type"

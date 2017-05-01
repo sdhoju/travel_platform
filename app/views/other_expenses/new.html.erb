@@ -1,14 +1,14 @@
-
-<p>
+<br><br>
+<div style= "padding-left: 8px">
 <%= form_for([@trip, @trip.other_expenses.build])  do |f| %>
     
-    <%= f.label :day %>
-    <%= f.text_field :day %>
+    <%= f.label :date %>
+    <%= f.text_field :day %><br>
       <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description %><br>
     <%= f.label :amount %>
-    <%= f.text_field :amount %>
-    <%= f.submit value="ADD" %>
+    <%= f.text_field :amount %><br>
+    <%= f.submit value="Add" %>
 
 <% end %>
-</p>
+<%= link_to '<button type="button">Cancel</button>'.html_safe, trip_other_expenses_path(@trip) %></div>

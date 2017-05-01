@@ -1,3 +1,67 @@
-// Place all the styles related to the trip controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.dropbtn {
+    background-color: #152244;
+    color: #BD262E;
+    padding: 40px 30px;
+    width: 290px;
+    height: 150px;
+    font-size: 30px;
+    font-style: Helvetica;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #263461;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content w {
+    color: black;
+    padding: 5px 90px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content x {
+    color: black;
+    padding: 5px 60px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content y {
+    color: black;
+    padding: 5px 70px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content z {
+    color: black;
+    padding: 5px 82px;
+    text-decoration: none;
+    display: block;
+}
+
+
+
+.dropdown w:hover {background-color: #f1f1f1}
+.dropdown x:hover {background-color: #f1f1f1}
+.dropdown y:hover {background-color: #f1f1f1}
+.dropdown z:hover {background-color: #f1f1f1}
+
+.show {display:block;}

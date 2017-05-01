@@ -1,14 +1,35 @@
+<br><p><center><h1>
+ <% if @trip.user == current_user %>
+  <%= @trip.place %> Trip
+  </h1>
+</p>
 
+<<<<<<< HEAD
 <p ><center><h1>
  <% if @trip.user == current_user %>
   <strong>Place : </strong>
   <%= @trip.place %>
+=======
 
-  <strong> Purpose: </strong>
-  <%= @trip.purpose %>
-  </h1>
-</p>
 
+<div class="dropdown">
+<button onclick="myFunction()" class="dropbtn">Daily Expenses</button>
+  <div id="myDropdown" class="dropdown-content">
+    <w><%= link_to '<button type="button4">View Expenses</button>'.html_safe, trip_transactions_path(@trip) %></w>
+    <w><%= link_to '<button type="button4">Add New Expense</button>'.html_safe, new_trip_transaction_path(@trip) %></w>
+  </div>
+</div>
+>>>>>>> 01352903dc8d7d7060fc8d6130a5e1235ca12165
+
+<div class="dropdown">
+<button onclick="myFunction1()" class="dropbtn">Transportation</button>
+  <div id="myDropdown1" class="dropdown-content">
+    <x> <%= link_to '<button type="button4">View transportation </button>'.html_safe, trip_transportations_path(@trip) %></x>
+    <x><%= link_to '<button type="button4">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip) %></x> 
+  </div>
+</div>
+
+<<<<<<< HEAD
 <div>
 
 <%= link_to '<button type="button">Add Transaction expense</button>'.html_safe, new_trip_transaction_path(@trip), id: "add_transaction", remote: true %>
@@ -59,17 +80,123 @@
     <%= link_to '<button type="button">View Other Expenses </button>'.html_safe, trip_other_expenses_path(@trip) %><br>
   
     </p>
+=======
+<div class="dropdown">
+<button onclick="myFunction2()" class="dropbtn">Registration</button>
+  <div id="myDropdown2" class="dropdown-content">
+    <y><%= link_to '<button type="button4">View registration fees </button>'.html_safe, trip_registration_fees_path(@trip) %></y>
+    <y>    <%= link_to '<button type="button4">Add registration fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %></y>
+  </div>
+</div>
 
-<br>
+<div class="dropdown">
+<button onclick="myFunction3()" class="dropbtn">Other Expenses</button>
+  <div id="myDropdown3" class="dropdown-content">
+    <z><%= link_to '<button type="button4">View Other Expenses </button>'.html_safe, trip_other_expenses_path(@trip) %></z>
+    <z><%= link_to '<button type="button4">Add Other Expenses</button>'.html_safe, new_trip_other_expense_path(@trip) %></z>
+  </div>
+</div><br>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction3() {
+    document.getElementById("myDropdown3").classList.toggle("show");
+}
+>>>>>>> 01352903dc8d7d7060fc8d6130a5e1235ca12165
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+<br> 
 
 
-<br><br />
 
-
-<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_path(@trip) %> 
-<%= link_to '<button type="button">Delete</button>'.html_safe, trip_path(@trip),
+<%= link_to '<button class="btn2">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
+<%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip),
               method: :delete,
-              data: { confirm: 'Delete trip?' } %>
+              data: { confirm: 'Delete trip?' } %> 
 
  
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>

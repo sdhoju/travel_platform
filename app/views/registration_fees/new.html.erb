@@ -1,10 +1,18 @@
+<br><br>
+<div style= "padding-left: 8px">
 <%= form_for([@trip, @trip.registration_fees.build])  do |f| %>
     
+
     <%= f.label :name %>
    <%= f.select :name, ["","Conference Fee","Banquet Fee","Dues"], {class: "form-control"} %>
     
+
     <%= f.label :amount %>
     <%= f.text_field :amount %>
+    <br><br>
     <%= f.submit %>
 
 <% end %>
+<%= link_to '<button type="button">Cancel</button>'.html_safe, trip_registration_fees_path(@trip) %>
+
+</div>

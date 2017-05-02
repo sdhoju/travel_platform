@@ -32,7 +32,7 @@ end
     @trip = Trip.find(params[:trip_id])
     @transportation = @trip.transportations.find(params[:id])
     if @transportation.update(transportation_params)
-        redirect_to @transportation
+        redirect_to trip_transportation_path(@trip,@transportation)
     else
       render 'edit'
     end

@@ -7,12 +7,12 @@
 
 
 <p>
-<% rubyxl(@trip) %>
 
 
 
 
-<%= link_to 'Excel', trip_download_path(@trip) %>
+
+
 </p>
 <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Daily Expenses</button>
@@ -146,8 +146,8 @@ window.onclick = function(event) {
 <br>
 <%= link_to '<button class="btn2">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
 <%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip), method: :delete, data: { confirm: 'Delete trip?' } %> 
-<% rubyxl(@trip) %>
-<%= link_to '<button class="btn2">Export Trip</button>'.html_safe, trip_download_path(@trip) %>
+
+<%= link_to '<button class="btn2">Excel</button>'.html_safe, trip_excel_path(@trip) %>
 
 </center><br><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>

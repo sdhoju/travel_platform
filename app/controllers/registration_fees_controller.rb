@@ -27,7 +27,7 @@ def index
     @trip = Trip.find(params[:trip_id])
     @registration_fee = @trip.registration_fees.find(params[:id])
     if @registration_fee.update(registration_fee_params)
-        redirect_to @registration_fee
+        redirect_to trip_registration_fee_path(@trip,@registration_fee)
     else
       render 'edit'
     end

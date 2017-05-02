@@ -35,6 +35,10 @@ def update
   render 'edit'
   end
 end
+def excel
+   @trip = Trip.find("#{id}") 
+  render 'excel'
+end
 
  def destroy
     @trip = Trip.find(params[:id])

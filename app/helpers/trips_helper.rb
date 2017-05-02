@@ -144,6 +144,7 @@ c=5
 
 	end	
 end
+
 #Transportation
 i=23
 j=4
@@ -189,12 +190,11 @@ end
 	end
 end	
 celloetotal = worksheet.sheet_data[39][4]
-celloetotal.change_contents(RegistrationFee.sum(:'amount'))
+celloetotal.change_contents(@trip.registration_fees.sum(:'amount'))
 
 #other Expenses
 i=35
 j=9
-
 @trip.other_expenses.each do |oe|
 	celloeday = worksheet.sheet_data[i][j]
 	celloeday.change_contents(oe.day)
@@ -208,7 +208,7 @@ j=9
 end	
 
 celloetotal = worksheet.sheet_data[39][12]
-celloetotal.change_contents(OtherExpense.sum(:'amount'))
+celloetotal.change_contents(@trip.other_expenses.sum(:'amount'))
 
 workbook.write("Excel/trip_#{@trip.user.id}_#{@trip.id}.xlsx")
 

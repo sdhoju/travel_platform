@@ -1,5 +1,5 @@
 
-<%= form_for :transportation  do |f| %>
+<%= form_for(@transportation, as: :transportation, url: trip_transportation_path(@trip))  do |f| %>
     
    	<%= f.label :from %>
     <%= f.text_field :from %>

@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
   @transaction = @trip.transactions.find(params[:id])
  
   if @transaction.update(transaction_params)
-    redirect_to @transaction
+    redirect_to trip_transaction_path(@trip,@transaction)
   else
     render 'edit'
   end

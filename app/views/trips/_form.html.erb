@@ -17,10 +17,10 @@
     <%= f.text_field :tripno %><br>
     
     <%= f.label :Purpose_and_place %>
-    <%= f.text_field :place %><br>
+    <%= f.text_area :place %><br>
 
 
-       <%= f.label :begindate %>
+    <%= f.label :begindate %>
     <%= f.text_field :begindate %><br>
     
     <%= f.label :begintime %>
@@ -41,13 +41,10 @@
     
     <%= f.label :contact %>
     <%= f.text_field :contact %><br>
-    
-    <%= f.label :Purpose %>
-    <%= f.text_field :purpose %><br>
- 
-    
     <%= f.label :Phone %>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone %><br />
+        <%= f.label :Comment %>
+    <%= f.text_area :purpose %><br>
 
 
     <%= f.submit %>

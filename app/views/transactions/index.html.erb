@@ -1,7 +1,7 @@
  <% if current_user == @trip.user %>
 <br>
 <center><h1>Daily Expenses</h1>
-<h4>Total = $<%= Transaction.sum(:'amount') %></h4></center>
+
 
 <table>
   <tr>
@@ -26,7 +26,7 @@
 
   <% end %>
 </table>
-Total = $<%= Transaction.sum(:'amount') %><br>
+Total = $<%= @trip.transactions.sum(:'amount') %><br>
 
    
    <tbody>

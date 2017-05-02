@@ -106,7 +106,7 @@ c=5
 				tempdate=(transaction.date)
 	else
 
-		while (tempdate==transaction.date) do
+		if (tempdate==transaction.date)
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -207,7 +207,7 @@ end
 celloetotal = worksheet.sheet_data[39][12]
 celloetotal.change_contents(OtherExpense.sum(:'amount'))
 
-workbook.write("Excel/trip_#{@trip.user.id}#{@trip.id}.xlsx")
+workbook.write("Excel/trip_#{@trip.user.id}_#{@trip.id}.xlsx")
 
 
 end

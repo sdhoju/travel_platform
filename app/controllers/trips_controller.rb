@@ -45,9 +45,9 @@ end
       new=
     @trip = Trip.find("#{id}") 
     if current_user.id=@trip.user.id 
-    if  send_file "Excel/trip_#{@current_user.id}#{@trip.id}.xlsx", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
+    if  send_file "Excel/trip_#{@current_user.id}_#{@trip.id}.xlsx", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
     else
-      redirect_to root_url
+      redirect_to @trip
     end
     end
   end
@@ -55,9 +55,9 @@ private
 def id
       resource,id = request.path.split('/')[1,2]
     @name=id
-  end
+end
 
-  def trip_params
+def trip_params
     params.require(:trip).permit(:place, :purpose, :contact, :dept, :phone, :accomp, :tripno, :begindate, :begintime, :enddate, :endtime )
   end
 end

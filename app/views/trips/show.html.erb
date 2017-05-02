@@ -5,6 +5,7 @@
   </h1>
 </p>
 
+
 <p>
 <% rubyxl(@trip) %>
 
@@ -140,17 +141,17 @@ window.onclick = function(event) {
   }
 }
 </script>
-<br> 
 
 
-
+<br>
 <%= link_to '<button class="btn2">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
-<%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip),
-              method: :delete,
-              data: { confirm: 'Delete trip?' } %> 
+<%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip), method: :delete, data: { confirm: 'Delete trip?' } %> 
+<% rubyxl(@trip) %>
+<%= link_to '<button class="btn2">Export Trip</button>'.html_safe, trip_download_path(@trip) %>
 
- 
+</center><br><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>
+
 </center><br>
 <%else%>
   <% controller.redirect_to trips_path %>

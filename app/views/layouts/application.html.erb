@@ -9,26 +9,18 @@
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
   </head> 
        
-  <body>  
-
-
+  <body>
     <div id="wrapper">   
       <body style="background-color:#EDEDED;">
       <div id="banner"> 
       <div style="position:relative;bottom:27px;text-decoration: none"><a ref="http://www.olemiss.edu">&nbsp;&nbsp;The University of Mississippi</a></div>
-
   <% if user_signed_in? %> <!-- IF USER IS SIGNED IN SHOW THE FOLLOWING:-->
         <font color=#EDEDED><p align="right"><%= current_user.email %>&nbsp;&nbsp;</font></p>
         <div style="position:relative; float:right;z-index: 1"><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag("OffButton.png", size: "30") %>
           <% end %>&nbsp;</div>
         <div style="position: relative; bottom:8px">
           <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
-          <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>
-        <div style="position: relative; bottom:-10px; float:left">
-          <%= link_to '<button class="btn2">Trips</button>'.html_safe, controller: '/trips' %>       
-          
-        
-          <%= link_to '<button class="btn2">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div><br><br>          
+          <%= link_to controller: '/welcome' do %>       <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       <% end %></div>      
   <% else %> <!-- IF USER IS SIGNED OUT SHOW THE FOLLOWING:-->
       <div style="position: relative;float:right;z-index: 1"> 
         <%= link_to '<button class="btn3">Sign Up</button>'.html_safe, new_user_registration_path %><br>
@@ -38,15 +30,9 @@
           <%= image_tag("IconBanner.png", :alt => "logo", size: "60") %>     
           <%= link_to controller: '/welcome' do %>       
           <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       
-          <% end %></div>
-        <div style="position: relative; bottom:-40px;float:left">          
-
-          <%= link_to '<button class="btn2">Trips</button>'.html_safe, controller: '/trips' %>   
-          <%= link_to '<button class="btn2">Reports</button>'.html_safe %>  <!-- ADD CONTROLLER WHEN WE HAVE IT--></div><br><br><br><br>   
-        <% end %>
-                          
-      <%= yield %> 
-                   
+          <% end %></div><br><br>
+        <% end %>              
+      <%= yield %>         
     </div>
  </body>
  </html>

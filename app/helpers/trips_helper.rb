@@ -1,4 +1,5 @@
 module TripsHelper
+	require 'date'
 def rubyxl(trip)
 	@trip =trip
 Rails.root.join "app", "assets", "Form.xlsx"
@@ -69,13 +70,14 @@ cellCom.change_contents(trip.purpose)
 #######################################################################################
 #Day
 c=5
-
+epoch = Date.new(2000,01,01)
 @trip.transactions.each do |transaction|
 	cellDay = worksheet.sheet_data[7][c]
 	tempdate=worksheet.sheet_data[7][c].value	
 	if (tempdate.nil?)
+		cellDay = worksheet.sheet_data[7][c]
 		cellDay.change_contents(transaction.date)
-		tempdate=worksheet.sheet_data[7][c].value	
+		tempdate=worksheet.sheet_data[7][c].value
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -106,9 +108,12 @@ c=5
 			end	
 	else
 
-		if (tempdate==transaction.date)
+		cellcheck = worksheet.sheet_data[9][12]
+		cellDay.change_contents(transaction.date)
+		check=worksheet.sheet_data[9][12].value
+		if (tempdate==check)
 			cellAmnt = worksheet.sheet_data[9][10]
-				cellAmnt.change_contents("herer")
+			cellAmnt.change_contents("herer")
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -137,14 +142,69 @@ c=5
 				cellAmnt = worksheet.sheet_data[19][c]
 				cellAmnt.change_contents(transaction.amount)	
 			end	
+			next
 		else
-			c=c+1
+			
+			if (transaction.dest=="Breakfast")
+				cellAmnt = worksheet.sheet_data[9][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Lunch")
+				cellAmnt = worksheet.sheet_data[10][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Dinner")
+				cellAmnt = worksheet.sheet_data[11][c]
+				cellAmnt.change_contents(transaction.amount)		
+			elsif (transaction.dest=="Lodging")
+				cellAmnt = worksheet.sheet_data[13][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Meal tips")
+				cellAmnt = worksheet.sheet_data[15][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Taxi")
+				cellAmnt = worksheet.sheet_data[16][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Parking toll")
+				cellAmnt = worksheet.sheet_data[17][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Gasoline")
+				cellAmnt = worksheet.sheet_data[18][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Business Calls")
+				cellAmnt = worksheet.sheet_data[19][c]
+				cellAmnt.change_contents(transaction.amount)	
+			end	
 		end
-
+			c=c+1
 
 	end	
 end
-
+#total 
+for r in 9..19
+total=0
+for c in 5..11
+	if(worksheet.sheet_data[r][c].value!=nil)
+		total=total+worksheet.sheet_data[r][c].value
+	end
+end
+	celltotal = worksheet.sheet_data[r][12]
+	celltotal.change_contents(total)
+end
+total =0
+for r in 9..13
+	if(worksheet.sheet_data[r][12].value!=nil)
+		total=total+worksheet.sheet_data[r][12].value
+	end
+end
+	celltotal = worksheet.sheet_data[14][12]
+	celltotal.change_contents(total)
+total =0
+for r in 15..19
+	if(worksheet.sheet_data[r][12].value!=nil)
+		total=total+worksheet.sheet_data[r][12].value
+	end
+end
+	celltotal = worksheet.sheet_data[20][12]
+	celltotal.change_contents(total)
 #Transportation
 i=23
 j=4
@@ -175,6 +235,16 @@ j=4
 	j=4
 	i=i+1
 end
+for c in 9..12
+	total =0
+for r in 23..30
+	if(worksheet.sheet_data[r][c].value!=nil)
+		total=total+worksheet.sheet_data[r][c].value
+	end
+end
+	celltotal = worksheet.sheet_data[32][c]
+	celltotal.change_contents(total)
+end
 
 #Registration fee
 @trip.registration_fees.each do |rf|
@@ -191,6 +261,15 @@ end
 end	
 celloetotal = worksheet.sheet_data[39][4]
 celloetotal.change_contents(@trip.registration_fees.sum(:'amount'))
+total =0
+for r in 35..18
+	if(worksheet.sheet_data[r][4].value!=nil)
+		total=total+worksheet.sheet_data[r][4].value
+	end
+end
+	celltotal = worksheet.sheet_data[39][4]
+	celltotal.change_contents(total)
+
 
 #other Expenses
 i=35
@@ -209,6 +288,8 @@ end
 
 celloetotal = worksheet.sheet_data[39][12]
 celloetotal.change_contents(@trip.other_expenses.sum(:'amount'))
+
+
 
 workbook.write("Excel/trip_#{@trip.user.id}_#{@trip.id}.xlsx")
 

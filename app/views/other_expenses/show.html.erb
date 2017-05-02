@@ -3,6 +3,7 @@
 	
 		Amount: <%= @other_expense.amount %>
 		
+		<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_other_expense_path(@trip,@other_expense) %> 
 <%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_other_expense_receipt_path(@trip,@other_expense) %><br><br />
  <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_other_expense_receipts_path(@trip, @other_expense) %><br><br />
  <%= link_to '<button type="button">BAck</button>'.html_safe, [@trip] %><br><br />

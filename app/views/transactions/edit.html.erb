@@ -1,5 +1,19 @@
 <center>
 
 <h3>Edit this transaction </h3><br>
+<%= form_for :transaction do |f| %>
+
+    <%= f.label :Date %>
+    <%= f.text_field :date %>
+	<%= f.label :type %>
+   	<%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %>
+    <%= f.label :item %>
+    <%= f.text_field :item %>
+    
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+    <%= f.submit %>
+
+<% end %>
 </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

@@ -1,5 +1,12 @@
 <center>
 
 <h3>Edit Registration fee </h3><br>
-<%= render 'form' %>
+<%= form_for :registration_fee do |f| %>
+   <%= f.label :name %>
+   <%= f.select :name, ["","Conference Fee","Banquet Fee","Dues"], {class: "form-control"} %>  
+   <%= f.label :amount %>
+   <%= f.text_field :amount %>
+   <%= f.submit %>
+
+<% end %>
 </center><br>

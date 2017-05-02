@@ -1,6 +1,7 @@
 		From: <%= @registration_fee.name %>
 		Amount: <%= @registration_fee.amount %>
 		
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_registration_fee_path(@trip,@registration_fee) %> 		
 <%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_registration_fee_receipt_path(@trip,@registration_fee) %><br><br />
  <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_registration_fee_receipts_path(@trip, @registration_fee) %><br><br />
  <%= link_to '<button type="button">BAck to trips</button>'.html_safe, trip_path(@trip) %><br><br />

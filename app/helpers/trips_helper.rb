@@ -68,56 +68,74 @@ cellCom.change_contents(trip.purpose)
 #other_expenses
 #######################################################################################
 #Day
-c=6
+	c=5
 @trip.transactions.each do |transaction|
-	
 	cellDay = worksheet.sheet_data[7][c]
-	if (cellDay==" ")
-		cellDay.change_contents("if ")
-	elsif(cellDay==".")
-		cellDay.change_contents("else if")
-	else
-		cellDay.change_contents("else")
-
-		tempdate=worksheet.sheet_data[11][c]
-	end	
-	if (tempdate==transaction.date)
-
-
-#Amount Breakfast
-		if (transaction.dest=="Breakfast")
-			cellAmnt = worksheet.sheet_data[9][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Lunch")
-			cellAmnt = worksheet.sheet_data[10][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Dinner")
-			cellAmnt = worksheet.sheet_data[11][c]
-			cellAmnt.change_contents(transaction.amount)		
-#Amount Lunch
-		elsif (transaction.dest=="Lodging")
-			cellAmnt = worksheet.sheet_data[13][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Meal tips")
-			cellAmnt = worksheet.sheet_data[15][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Taxi")
-			cellAmnt = worksheet.sheet_data[16][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Parking toll")
-			cellAmnt = worksheet.sheet_data[17][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Gasoline")
-			cellAmnt = worksheet.sheet_data[18][c]
-			cellAmnt.change_contents(transaction.amount)
-		elsif (transaction.dest=="Business Calls")
-			cellAmnt = worksheet.sheet_data[19][c]
-			cellAmnt.change_contents(transaction.amount)	
+	tempdate=worksheet.sheet_data[7][c].value	
+	if (tempdate.nil?)
+		cellDay.change_contents(transaction.date)
+			if (transaction.dest=="Breakfast")
+				cellAmnt = worksheet.sheet_data[9][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Lunch")
+				cellAmnt = worksheet.sheet_data[10][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Dinner")
+				cellAmnt = worksheet.sheet_data[11][c]
+				cellAmnt.change_contents(transaction.amount)		
+			elsif (transaction.dest=="Lodging")
+				cellAmnt = worksheet.sheet_data[13][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Meal tips")
+				cellAmnt = worksheet.sheet_data[15][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Taxi")
+				cellAmnt = worksheet.sheet_data[16][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Parking toll")
+				cellAmnt = worksheet.sheet_data[17][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Gasoline")
+				cellAmnt = worksheet.sheet_data[18][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Business Calls")
+				cellAmnt = worksheet.sheet_data[19][c]
+				cellAmnt.change_contents(transaction.amount)	
+			end	
+	else	
+		if (tempdate==transaction.date)
+			if (transaction.dest=="Breakfast")
+				cellAmnt = worksheet.sheet_data[9][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Lunch")
+				cellAmnt = worksheet.sheet_data[10][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Dinner")
+				cellAmnt = worksheet.sheet_data[11][c]
+				cellAmnt.change_contents(transaction.amount)		
+			elsif (transaction.dest=="Lodging")
+				cellAmnt = worksheet.sheet_data[13][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Meal tips")
+				cellAmnt = worksheet.sheet_data[15][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Taxi")
+				cellAmnt = worksheet.sheet_data[16][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Parking toll")
+				cellAmnt = worksheet.sheet_data[17][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Gasoline")
+				cellAmnt = worksheet.sheet_data[18][c]
+				cellAmnt.change_contents(transaction.amount)
+			elsif (transaction.dest=="Business Calls")
+				cellAmnt = worksheet.sheet_data[19][c]
+				cellAmnt.change_contents(transaction.amount)	
+			end	
+		else
+			
 		end
-	else
-		c=+1;
-		tempdate=worksheet.sheet_data[11][c]	
-	end
+	end	
 end
 #Transportation
 i=23

@@ -7,6 +7,7 @@
 <strong>Airfare:</strong> <%= @transportation.airfare %><br>
 <strong>Rental:</strong> <%= @transportation.rental_car %><br>
 <strong>Bus/Train:</strong> <%= @transportation.bus_train %><br><br>
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_transportation_path(@trip,@transportation) %> 
 		
 <%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,@transportation) %>
 

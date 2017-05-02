@@ -75,6 +75,7 @@ c=5
 	tempdate=worksheet.sheet_data[7][c].value	
 	if (tempdate.nil?)
 		cellDay.change_contents(transaction.date)
+		tempdate=worksheet.sheet_data[7][c].value	
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -103,10 +104,11 @@ c=5
 				cellAmnt = worksheet.sheet_data[19][c]
 				cellAmnt.change_contents(transaction.amount)	
 			end	
-				tempdate=(transaction.date)
 	else
 
 		if (tempdate==transaction.date)
+			cellAmnt = worksheet.sheet_data[9][10]
+				cellAmnt.change_contents("herer")
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -135,9 +137,10 @@ c=5
 				cellAmnt = worksheet.sheet_data[19][c]
 				cellAmnt.change_contents(transaction.amount)	
 			end	
-		
+		else
+			c=c+1
 		end
-		c=c+1
+
 
 	end	
 end

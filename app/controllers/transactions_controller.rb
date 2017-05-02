@@ -17,11 +17,13 @@ class TransactionsController < ApplicationController
     @transaction =@trip.transactions.create(transaction_params)
     redirect_to trip_transactions_path(@trip)
   end
+
   def edit
         @trip = Trip.find(params[:trip_id])
-  @transaction = @trip.transactions.find(params[:id])
+   @transaction = @trip.transactions.find(params[:id])
     
   end
+  
   def update
     @trip = Trip.find(params[:trip_id])
   @transaction = @trip.transactions.find(params[:id])

@@ -24,10 +24,10 @@ class TransportationsController < ApplicationController
     }
  end
   end
-    def edit
+def edit
         @trip = Trip.find(params[:trip_id])
         @transportation = @trip.transportations.find(params[:id])
-  end
+end
  def update
     @trip = Trip.find(params[:trip_id])
     @transportation = @trip.transportations.find(params[:id])

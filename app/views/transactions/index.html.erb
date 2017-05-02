@@ -32,7 +32,7 @@ Total = $<%= Transaction.sum(:'amount') %><br>
       <% @trip.transactions.each do |transactions| %>
          
          <tr>
-            <td><%= transactions.dcategory.name %></td>
+            <td><%= transactions.dest %></td>
             <td><%= transactions.item %></td>
             <td>$<%= transactions.amount %></td>
             <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [transactions.trip, transactions],

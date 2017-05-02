@@ -52,6 +52,6 @@ def id
   end
 
   def trip_params
-    params.require(:trip).permit(:place, :purpose)
+    params.require(:trip).permit(:place, :purpose, :contact, :dept, :phone, :accomp, :tripno, :begindate, :begintime, :enddate, :endtime )
   end
 end

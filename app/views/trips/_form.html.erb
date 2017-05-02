@@ -15,12 +15,43 @@
     </div>
   <% end %>
     
+     <%= f.label :Trip_number %>
+    <%= f.text_field :tripno %><br>
     
-    <%= f.label :Place %>
+    <%= f.label :Purpose_and_place %>
     <%= f.text_field :place %><br>
+
+
+       <%= f.label :begindate %>
+    <%= f.text_field :begindate %><br>
+    
+    <%= f.label :begintime %>
+    <%= f.text_field :begintime %><br>
+
+       <%= f.label :enddate %>
+    <%= f.text_field :enddate %><br>
+    
+    <%= f.label :endtime %>
+    <%= f.text_field :endtime %><br>
+
+
+    <%= f.label :accomp %>
+    <%= f.text_field :accomp %><br>
+
+       <%= f.label :Department %>
+    <%= f.text_field :dept %><br>
+    
+    <%= f.label :contact %>
+    <%= f.text_field :contact %><br>
     
     <%= f.label :Purpose %>
-    <%= f.text_area :purpose %><br>
+    <%= f.text_field :purpose %><br>
+ 
+    
+    <%= f.label :Phone %>
+    <%= f.text_field :phone %>
+
+
     <%= f.submit %>
 
 <% end %>

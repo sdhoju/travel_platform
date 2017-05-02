@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427012706) do
+ActiveRecord::Schema.define(version: 20170501234714) do
 
   create_table "dcategories", force: :cascade do |t|
     t.string   "name"
@@ -28,9 +28,7 @@ ActiveRecord::Schema.define(version: 20170427012706) do
     t.index ["trip_id"], name: "index_other_expenses_on_trip_id"
   end
 
-
   create_table "receipts", force: :cascade do |t|
-
     t.string   "name"
     t.string   "attachment"
     t.string   "imageable_type"
@@ -56,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170427012706) do
     t.datetime "updated_at", null: false
     t.string   "dest"
     t.integer  "trip_id"
+    t.date     "date"
     t.index ["trip_id"], name: "index_transactions_on_trip_id"
   end
 
@@ -85,6 +84,15 @@ ActiveRecord::Schema.define(version: 20170427012706) do
     t.integer  "user_id"
     t.string   "place"
     t.text     "purpose"
+    t.string   "contact"
+    t.string   "dept"
+    t.string   "accomp"
+    t.string   "phone"
+    t.integer  "tripno"
+    t.date     "begindate"
+    t.time     "begintime"
+    t.date     "enddate"
+    t.time     "endtime"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +108,8 @@ ActiveRecord::Schema.define(version: 20170427012706) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.integer  "sap"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

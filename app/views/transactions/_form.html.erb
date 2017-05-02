@@ -1,7 +1,9 @@
 <%= form_for ([@trip, @trip.transactions.build]) do |f| %>
 
-    
-
+     <%= f.label :Date %>
+    <%= f.text_field :date %>
+	<%= f.label :type %>
+   <%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %>
     <%= f.label :item %>
     <%= f.text_field :item %>
     

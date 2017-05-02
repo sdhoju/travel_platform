@@ -15,11 +15,11 @@ cellSAP.change_contents(trip.user.sap)
 
 #name
 cellName = worksheet.sheet_data[0][7]
-cellName.change_contents(trip.place)
+cellName.change_contents(trip.user.name)
 
 #email
 cellEmail = worksheet.sheet_data[1][7]
-cellEmail.change_contents(trip.purpose)
+cellEmail.change_contents(trip.user.email)
 
 #dept
 cellDept = worksheet.sheet_data[2][7]
@@ -68,7 +68,8 @@ cellCom.change_contents(trip.purpose)
 #other_expenses
 #######################################################################################
 #Day
-	c=5
+c=5
+
 @trip.transactions.each do |transaction|
 	cellDay = worksheet.sheet_data[7][c]
 	tempdate=worksheet.sheet_data[7][c].value	
@@ -102,8 +103,10 @@ cellCom.change_contents(trip.purpose)
 				cellAmnt = worksheet.sheet_data[19][c]
 				cellAmnt.change_contents(transaction.amount)	
 			end	
-	else	
-		if (tempdate==transaction.date)
+				tempdate=(transaction.date)
+	else
+
+		while (tempdate==transaction.date) do
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -132,9 +135,10 @@ cellCom.change_contents(trip.purpose)
 				cellAmnt = worksheet.sheet_data[19][c]
 				cellAmnt.change_contents(transaction.amount)	
 			end	
-		else
-			
+		
 		end
+		c=c+1
+
 	end	
 end
 #Transportation
@@ -203,7 +207,7 @@ end
 celloetotal = worksheet.sheet_data[39][12]
 celloetotal.change_contents(OtherExpense.sum(:'amount'))
 
-workbook.write("Excel/trip_#{@trip.id}.xlsx")
+workbook.write("Excel/trip_#{@trip.user.id}#{@trip.id}.xlsx")
 
 
 end

@@ -16,13 +16,13 @@
    
    <tbody>
       <% @trips.each do |trip| %>
-         
+         <%if trip.user_id == current_user.id %>
          <tr>
             <td><%= trip.place %></td>
             <td><%= trip.purpose %></td>
             <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
          </tr>
-         
+         <% end %>
       <% end %>
    </tbody>
    

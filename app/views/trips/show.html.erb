@@ -1,14 +1,16 @@
+<% if current_user == @trip.user %>
 <br><p><center><h1>
- 
   <%= @trip.place %> Trip
-
-    <%= @trip.user.name %>
+  Name: <%= @trip.user.sap %>
   </h1>
 </p>
 
 <p>
 <% rubyxl(@trip) %>
-  
+
+
+
+
 <%= link_to 'Excel', trip_download_path(@trip) %>
 </p>
 <div class="dropdown">
@@ -150,3 +152,7 @@ window.onclick = function(event) {
  
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>
  </center><br>
+ 
+<%else%>
+  <% controller.redirect_to trips_path %>
+<%end%>

@@ -1,4 +1,7 @@
+ <% if current_user == @trip.user %>
 <center>
+        <strong>Type : </strong>
+  <%= @transaction.date %>
     <strong>Type : </strong>
   <%= @transaction.dest %>
 
@@ -16,3 +19,6 @@
               data: { confirm: 'Delete data?' } %>
  </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions' %>
+<%else%>
+  <% controller.redirect_to trips_path %>
+<%end%>

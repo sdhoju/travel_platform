@@ -1,21 +1,24 @@
+<table>
 <%= form_for([@trip, @trip.transportations.build])  do |f| %>
-    <%= f.label :date %>
-    <%= f.text_field :date, :id=>"datepicker" %>
-   	<%= f.label :from %>
-    <%= f.text_field :from %><br>
-    <%= f.label :to %>
-    <%= f.text_field :to %><br>
-    <%= f.label :mileage %>
-    <%= f.text_field :mileage %><br>
-    <%= f.label :amount %>
-    <%= f.text_field :amount %><br>
-    <%= f.label :airfare %>
-    <%= f.text_field :airfare %><br>
-    <%= f.label :rental_car %>
-    <%= f.text_field :rental_car %><br>
-    <%= f.label :bus_train %>
-    <%= f.text_field :bus_train %><br><Br>
-    <%= f.submit %>
+   <tr><td> <%= f.label :date %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :date, :id=>"datepicker" %></td></tr>
+   <tr><td><%= f.label :from %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :from %></td></tr>
+    <tr><td> <%= f.label :to %></td><td>:&nbsp;&nbsp;
+ 
+    <%= f.text_field :to %></td></tr>
+    <tr><td> <%= f.label :mileage %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :mileage %></td></tr>
+    <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :amount %></td></tr>
+   <tr><td>  <%= f.label :airfare %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :airfare %></td></tr>
+    <tr><td> <%= f.label :rental_car %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :rental_car %></td></tr>
+    <tr><td> <%= f.label :bus_train %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :bus_train %></td></tr>
+<tr><td> </td><td>    <%= f.submit %></td></tr>
 
 <% end %>
 
+</table>

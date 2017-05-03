@@ -1,19 +1,22 @@
 <center>
 
 <h3>Edit Transaction </h3><br>
+<table>
 <%= form_for(@transaction, as: :transaction, url: trip_transaction_path(@trip)) do |f| %>
 
-    <%= f.label :Date %>
-    <%= f.text_field :date %>
-	<%= f.label :type %>
-   	<%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %>
-    <%= f.label :item %>
-    <%= f.text_field :item %>
+ <tr><td><%= f.label :Date %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :date, :id=>"datepicker" %></td></tr>
+
+	 <tr><td><%= f.label :type %></td><td>:&nbsp;&nbsp;
+   <%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %></td></tr>
+  <tr><td>   <%= f.label :detail %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :item %></td></tr>
     
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-    <%= f.submit %>
+    <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
+    <%= f.text_field :amount %></td></tr>
+    <tr><td></td><td>&nbsp;&nbsp; <%= f.submit %></td></tr>
 
 <% end %>
+</table>
 </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

@@ -1,15 +1,15 @@
  <% if current_user == @trip.user %>
 <center>
-  <strong>Type : </strong>
-  <%= @transaction.date %>
-    <strong>Type : </strong>
-  <%= @transaction.dest %>
+  <strong>Date: </strong>
+  <%= @transaction.date %><br>
+    <strong>Type: </strong>
+  <%= @transaction.dest %><br>
 
-  <strong>Detail : </strong>
-  <%= @transaction.item %>
+  <strong>Detail: </strong>
+  <%= @transaction.item %><br>
 
   <strong> Amount: </strong>
-  $<%= @transaction.amount %>
+  $<%= @transaction.amount %><br><br>
 
     
 <%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transaction_receipt_path(@trip,@transaction) %>
@@ -22,7 +22,8 @@
               method: :delete,
               data: { confirm: 'Delete data?' } %>
  </center><br>
-<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions' %>
+<div style="float: left; margin-left: 8px">
+<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions' %></div>
 <%else%>
   <% controller.redirect_to trips_path %>
 <%end%>

@@ -1,5 +1,4 @@
-<br><br>
-<div style="padding-left: 8px">
+<br>
 <strong>From:</strong> <%= @transportation.from %><br>
 <strong>To:</strong> <%= @transportation.to %><br>
 <strong>Mileage:</strong> <%= @transportation.mileage %><br>
@@ -12,6 +11,8 @@
 <%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transportation_receipt_path(@trip,@transportation) %>
 
  <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_transportation_receipts_path(@trip, @transportation) %><br><br />
- <%= link_to '<button type="button">BAck</button>'.html_safe, [@trip] %><br><br />
+
+<div style="float: left; margin-left: 8px">
+<%= link_to '<button type="button">Cancel</button>'.html_safe, controller: 'transportations', class: 'button' %></div>
 </p>
 

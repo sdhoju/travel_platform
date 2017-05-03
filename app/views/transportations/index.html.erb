@@ -18,7 +18,7 @@
             <td><%= transportation.from %></td>
             <td><%= transportation.to %></td>
             <td><%= transportation.mileage %></td>
-            <td><%= transportation.amount %></td>
+            <td>$<%= transportation.amount %></td>
             <td><%= link_to '<button type="button">More Info</button>'.html_safe, trip_transportation_path(@trip,transportation) %></td>
             <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [transportation.trip, transportation],
               method: :delete,
@@ -36,5 +36,6 @@
 <%= link_to '<button class="btn2">Add New Expense</button>'.html_safe, new_trip_transportation_path %>
 </center>
 <br>
-<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<div style="float: left; margin-left: 8px">
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %></div>
   

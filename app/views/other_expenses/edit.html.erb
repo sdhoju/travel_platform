@@ -1,3 +1,4 @@
+<h3>Edit Other Expense</h3>
 <br>
 <div><%= form_for(@other_expense, as: :other_expense, url: trip_other_expense_path(@trip)) do |f| %>
     
@@ -6,8 +7,11 @@
       <%= f.label :description %>
     <%= f.text_field :description %><br>
     <%= f.label :amount %>
-    <%= f.text_field :amount %><br>
-    <%= f.submit value="Add" %>
+    <%= f.text_field :amount %><br><br>
+    <%= f.submit value="Save" %>
 
 <% end %>
 </div>
+
+<div style="float:left;margin-left: 8px">
+<%= link_to '<button type="button">Cancel</button>'.html_safe, trip_other_expenses_path(@trip) %></div>

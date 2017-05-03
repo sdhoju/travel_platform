@@ -2,13 +2,14 @@
 
      <%= f.label :Date %>
     <%= f.text_field :date, :id=>"datepicker" %>
+
 	<%= f.label :type %>
-   <%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %>
+   <%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %><br>
     <%= f.label :item %>
-    <%= f.text_field :item %>
+    <%= f.text_field :item %><br>
     
     <%= f.label :amount %>
-    <%= f.text_field :amount %>
+    <%= f.text_field :amount %><br><br>
     <%= f.submit %>
 
 <% end %>

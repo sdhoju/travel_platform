@@ -1,11 +1,12 @@
- <% if current_user == @trip.user %>
+<% if current_user == @trip.user %>
 <br>
 <center><h1>Daily Expenses</h1>
-
+<strong>Total</strong> = $<%= @trip.transactions.sum(:'amount') %><br>
 
 <table class = "table table-bordered table-striped">
-   <thead>.
-    <tr>
+   <thead>
+    <tr><br>
+    <th>Date</th>
     <th>Category</th>
     <th>Detail</th>
     <th>Amount</th>
@@ -15,7 +16,7 @@
  <% @inc =0 %>
   <% @trip.transactions.each do |transaction| %>
     <tr>
-    <td><%= @inc+=1 %></td>
+      <td><%= transaction.date %></td>
       <td><%= transaction.dest %></td>
       <td><%= transaction.item %></td>
       <td>$<%= transaction.amount %></td>
@@ -27,7 +28,6 @@
     </tr><% end %>
     </tbody>
  </table>
- Total = $<%= @trip.transactions.sum(:'amount') %><br>
 <br>
 
 <center>
@@ -37,5 +37,6 @@
 <%else%>
   <% controller.redirect_to trips_path %>
 <%end%>
-<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<div style="float: left; margin-left: 8px">
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %></div>
 

@@ -1,19 +1,9 @@
 <% if current_user == @trip.user %>
-<br><p><center><h1>
-  <%= @trip.place %> Trip
-  Name: <%= @trip.user.sap %>
+<p><center><h1>
+  Trip #<%= @trip.tripno %>
   </h1>
 </p>
-
-
-<p>
-
-
-
-
-
-
-</p>
+<br>
 <div class="dropdown">
 <button onclick="myFunction()" class="dropbtn">Daily Expenses</button>
   <div id="myDropdown" class="dropdown-content">
@@ -26,8 +16,8 @@
 <div class="dropdown">
 <button onclick="myFunction1()" class="dropbtn">Transportation</button>
   <div id="myDropdown1" class="dropdown-content">
-    <x> <%= link_to '<button type="button4">View transportation </button>'.html_safe, trip_transportations_path(@trip) %></x>
-    <x><%= link_to '<button type="button4">Add transportation expense</button>'.html_safe, new_trip_transportation_path(@trip) %></x> 
+    <x> <%= link_to '<button type="button4">View Transportation Expenses</button>'.html_safe, trip_transportations_path(@trip) %></x>
+    <x><%= link_to '<button type="button4">Add Transportation Expense</button>'.html_safe, new_trip_transportation_path(@trip) %></x> 
   </div>
 </div>
 
@@ -37,8 +27,8 @@
 <div class="dropdown">
 <button onclick="myFunction2()" class="dropbtn">Registration</button>
   <div id="myDropdown2" class="dropdown-content">
-    <y><%= link_to '<button type="button4">View registration fees </button>'.html_safe, trip_registration_fees_path(@trip) %></y>
-    <y>    <%= link_to '<button type="button4">Add registration fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %></y>
+    <y><%= link_to '<button type="button4">View Registration Fees </button>'.html_safe, trip_registration_fees_path(@trip) %></y>
+    <y>    <%= link_to '<button type="button4">Add Registration Fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %></y>
   </div>
 </div>
 
@@ -147,12 +137,9 @@ window.onclick = function(event) {
 <%= link_to '<button class="btn2">Edit Trip</button>'.html_safe, edit_trip_path(@trip) %> 
 <%= link_to '<button class="btn2">Delete Trip</button>'.html_safe, trip_path(@trip), method: :delete, data: { confirm: 'Delete trip?' } %> 
 
-<%= link_to '<button class="btn2">Excel</button>'.html_safe, trip_excel_path(@trip) %>
+<%= link_to '<button class="btn2">Export</button>'.html_safe, trip_excel_path(@trip) %>
 
-</center><br><br>
-<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %>
-
-</center><br>
-<%else%>
-  <% controller.redirect_to trips_path %>
+<br><br></center>
+<div style="float: left;margin-left: 8px">
+<%= link_to '<button type="button">Back</button>'.html_safe, controller: 'trips' %></div>
 <%end%>

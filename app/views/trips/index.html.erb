@@ -4,8 +4,8 @@
 <table class = "table table-bordered table-striped">
    <thead>.
       <tr>
-         <th>Place</th>
-         <th>Purpose</th>
+         <th>Place and Purpose</th>
+         <th>Trip Number</th>
          <th> </th>
       </tr>
    </thead>
@@ -15,7 +15,7 @@
          <%if trip.user_id == current_user.id %>
          <tr>
             <td><%= trip.place %></td>
-            <td><%= trip.purpose %></td>
+            <td><%= trip.tripno %></td>
             <td><%= link_to '<button type="button">Show</button>'.html_safe, trip_path(trip) %></td>
          </tr>
          <% end %>

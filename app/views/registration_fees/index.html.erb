@@ -13,7 +13,7 @@
       <% @trip.registration_fees.each do |registration_fee| %>
          <tr>
             <td><%= registration_fee.name %></td>
-            <td><%= registration_fee.amount %></td>
+            <td>$<%= registration_fee.amount %></td>
             <td><%= link_to '<button type="button">Show</button>'.html_safe, [@trip,registration_fee] %></td>
             <td> <%= link_to '<button type="button">Delete</button>'.html_safe, [registration_fee.trip, registration_fee],
               method: :delete,
@@ -31,6 +31,7 @@
 <%= link_to '<button class="btn2">Add New Registration Fee</button>'.html_safe, new_trip_registration_fee_path(@trip) %>
 </center>
 <br>
-<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %>
+<div style="float:left;margin-left: 8px">
+<%= link_to '<button type="button">Back</button>'.html_safe, trip_path(@trip) %></div>
 
   

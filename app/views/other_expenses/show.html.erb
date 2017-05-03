@@ -1,10 +1,10 @@
-		<br>
-		day: <%= @other_expense.day %>
-		Description: <%= @other_expense.description %>
-	
-		Amount: <%= @other_expense.amount %>
+<br>
+<strong>Date:</strong> <%= @other_expense.day %><br>
+<strong>Description:</strong> <%= @other_expense.description %><br>
+<strong>Amount:</strong> <%= @other_expense.amount %><br><br>
 		
-		<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_other_expense_path(@trip,@other_expense) %> 
-<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_other_expense_receipt_path(@trip,@other_expense) %><br><br />
+<%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_other_expense_path(@trip,@other_expense) %> 
+<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_other_expense_receipt_path(@trip,@other_expense) %>
  <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_other_expense_receipts_path(@trip, @other_expense) %><br><br />
- <%= link_to '<button type="button">BAck</button>'.html_safe, [@trip] %><br><br />
+<div style="float:left;margin-left: 8px">
+<%= link_to '<button type="button">Cancel</button>'.html_safe, trip_other_expenses_path(@trip) %></div>

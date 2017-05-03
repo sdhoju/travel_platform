@@ -112,8 +112,6 @@ epoch = Date.new(2000,01,01)
 		cellDay.change_contents(transaction.date)
 		check=worksheet.sheet_data[9][12].value
 		if (tempdate==check)
-			cellAmnt = worksheet.sheet_data[9][10]
-			cellAmnt.change_contents("herer")
 			if (transaction.dest=="Breakfast")
 				cellAmnt = worksheet.sheet_data[9][c]
 				cellAmnt.change_contents(transaction.amount)
@@ -174,10 +172,12 @@ epoch = Date.new(2000,01,01)
 				cellAmnt.change_contents(transaction.amount)	
 			end	
 		end
-			c=c+1
+
+		c=c+1
 
 	end	
 end
+
 #total 
 for r in 9..19
 total=0

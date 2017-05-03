@@ -26,7 +26,7 @@ before_filter :load_imageable
     def load_imageable
     resource, id = request.path.split('/')[1,2]
      @tripped = resource.singularize.classify.constantize.find(id)
-     klass =[Transportation,RegistrationFee, OtherExpense].detect{|c| params["#{c.name.underscore}_id"]}
+     klass =[Transportation,RegistrationFee, OtherExpense,Transaction].detect{|c| params["#{c.name.underscore}_id"]}
      @imageable = klass.find(params["#{klass.name.underscore}_id"])
     end
 

@@ -1,3 +1,7 @@
+
+<head>
+
+</head>
 <%= form_for @trip do |f| %>
     <% if @trip.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +15,8 @@
         <% end %>
       </ul>
     </div>
+
+
   <% end %>
     
     <table>
@@ -23,14 +29,16 @@
 
  <tr><td>
     <%= f.label :begindate %></td><td>
-    <%= f.text_field :begindate %></td></tr>
+    <%= f.text_field :begindate, :id=>"datepicker" %>
+    </td></tr>
      <tr><td>
     <%= f.label :begintime %></td><td>
     <%= f.text_field :begintime %></td></tr>
 
  <tr><td>
        <%= f.label :enddate %></td><td>
-    <%= f.text_field :enddate %></td></tr>
+    <%= f.text_field :enddate, :id=>"datepicker" %>
+    </td></tr>
     
      <tr><td>
     <%= f.label :endtime %></td><td>
@@ -57,6 +65,14 @@
     <%= f.text_area :purpose %></td></tr>
 
 <tr><td></td>
-  <td>  <%= f.submit %></td></tr>
+  <td>  <%= f.submit %>
+    <%= link_to '<button type="button">Cancel</button>'.html_safe, controller: 'trips', class: 'button' %>
+  </td></tr>
 
 <% end %>
+
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>

@@ -9,8 +9,9 @@ devise_for :users
 resources :trips do
 	get 'download'
 	get :excel
-	resources :transactions
-	
+	resources :transactions do
+		resources :receipts
+	end
 	resources :transportations do
 		resources :receipts
 	end

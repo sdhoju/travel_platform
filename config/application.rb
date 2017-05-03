@@ -12,8 +12,5 @@ module Travel
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
   end
-<<<<<<< HEAD
-=======
 
->>>>>>> cb62c7ff0f145bab81b5d451081c72c7679328b4
 end

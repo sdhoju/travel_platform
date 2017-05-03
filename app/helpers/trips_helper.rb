@@ -1,5 +1,5 @@
 module TripsHelper
-	
+	require 'date'
 def rubyxl(trip)
 	@trip =trip
 Rails.root.join "app", "assets", "Form.xlsx"
@@ -49,13 +49,13 @@ cellSD = worksheet.sheet_data[4][8]
 cellSD.change_contents(trip.begindate)
 #Start Time
 cellST = worksheet.sheet_data[4][7]
-cellST.change_contents(trip.begintime)
+cellST.change_contents(trip.begintime.strftime("%I:%M%p"))
 #End Date
 cellED = worksheet.sheet_data[5][8]
 cellED.change_contents(trip.enddate)
 #End Time
 cellET = worksheet.sheet_data[5][7]
-cellET.change_contents(trip.endtime)
+cellET.change_contents(trip.endtime.strftime("%I:%M%p"))
 #Accompaning person
 cellAP = worksheet.sheet_data[5][9]
 cellAP.change_contents(trip.accomp)

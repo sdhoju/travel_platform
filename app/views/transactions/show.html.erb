@@ -11,10 +11,14 @@
   <strong> Amount: </strong>
   $<%= @transaction.amount %>
 
+    
+<%= link_to '<button type="button">Add Receipts</button>'.html_safe, new_trip_transaction_receipt_path(@trip,@transaction) %>
+
+ <%= link_to '<button type="button">Show Receipts</button>'.html_safe, trip_transaction_receipts_path(@trip, @transaction) %><br><br />
 
 
 <%= link_to '<button type="button">Edit</button>'.html_safe, edit_trip_transaction_path(@trip,@transaction) %> 
-<%= link_to '<button type="button">Delete</button>'.html_safe, trip_transaction_path(@transaction),
+<%= link_to '<button type="button">Delete</button>'.html_safe, [@transaction.trip, @transaction],
               method: :delete,
               data: { confirm: 'Delete data?' } %>
  </center><br>

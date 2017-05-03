@@ -2,7 +2,7 @@
 <div><%= form_for(@other_expense, as: :other_expense, url: trip_other_expense_path(@trip)) do |f| %>
     
     <%= f.label :date %>
-    <%= f.text_field :day %><br>
+    <%= f.text_field :day, :id=>"datepicker" %><br>
       <%= f.label :description %>
     <%= f.text_field :description %><br>
     <%= f.label :amount %>

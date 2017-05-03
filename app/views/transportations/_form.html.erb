@@ -1,5 +1,6 @@
 <%= form_for([@trip, @trip.transportations.build])  do |f| %>
-    
+    <%= f.label :date %>
+    <%= f.text_field :date, :id=>"datepicker" %>
    	<%= f.label :from %>
     <%= f.text_field :from %>
     <%= f.label :to %>

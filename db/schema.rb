@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501234714) do
+ActiveRecord::Schema.define(version: 20170503210252) do
 
   create_table "dcategories", force: :cascade do |t|
     t.string   "name"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20170501234714) do
     t.decimal  "rental_car"
     t.decimal  "bus_train"
     t.integer  "trip_id"
+    t.date     "date"
     t.index ["trip_id"], name: "index_transportations_on_trip_id"
   end
 

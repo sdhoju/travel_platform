@@ -45,6 +45,6 @@ end
   end
  private
   def transportation_params
-    params.require(:transportation).permit(:from, :to, :mileage, :amount, :airfare, :rental_car, :bus_train ) 
+    params.require(:transportation).permit(:date, :from, :to, :mileage, :amount, :airfare, :rental_car, :bus_train ) 
   end
 end

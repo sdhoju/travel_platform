@@ -13,40 +13,50 @@
     </div>
   <% end %>
     
-     <%= f.label :Trip_number %>
-    <%= f.text_field :tripno %><br>
+    <table>
+    <tr><td>
+    <%= f.label :Trip_number %></td><td>
+    <%= f.text_field :tripno %></td></tr>
+     <tr><td>
+    <%= f.label :Purpose_and_place %></td><td>
+    <%= f.text_area :place %></td><tr>
+
+ <tr><td>
+    <%= f.label :begindate %></td><td>
+    <%= f.text_field :begindate %></td></tr>
+     <tr><td>
+    <%= f.label :begintime %></td><td>
+    <%= f.text_field :begintime %></td></tr>
+
+ <tr><td>
+       <%= f.label :enddate %></td><td>
+    <%= f.text_field :enddate %></td></tr>
     
-    <%= f.label :Purpose_and_place %>
-    <%= f.text_area :place %><br>
+     <tr><td>
+    <%= f.label :endtime %></td><td>
+    <%= f.text_field :endtime %></td></tr>
 
-
-    <%= f.label :begindate %>
-    <%= f.text_field :begindate %><br>
+ <tr><td>
+    <%= f.label :accomp %></td><td>
+    <%= f.text_field :accomp %></td></tr>
+ <tr><td>
+       <%= f.label :Department %></td><td>
+    <%= f.text_field :dept %></td></tr>
     
-    <%= f.label :begintime %>
-    <%= f.text_field :begintime %><br>
+     <tr><td>
+    <%= f.label :contact %></td><td>
+    <%= f.text_field :contact %></td></tr>
 
-       <%= f.label :enddate %>
-    <%= f.text_field :enddate %><br>
-    
-    <%= f.label :endtime %>
-    <%= f.text_field :endtime %><br>
+ <tr><td>
 
+    <%= f.label :Phone %></td><td>
+    <%= f.text_field :phone %></td></tr>
 
-    <%= f.label :accomp %>
-    <%= f.text_field :accomp %><br>
+     <tr><td>
+        <%= f.label :Comment %></td><td>
+    <%= f.text_area :purpose %></td></tr>
 
-       <%= f.label :Department %>
-    <%= f.text_field :dept %><br>
-    
-    <%= f.label :contact %>
-    <%= f.text_field :contact %><br>
-    <%= f.label :Phone %>
-    <%= f.text_field :phone %><br />
-        <%= f.label :Comment %>
-    <%= f.text_area :purpose %><br>
-
-<br><Br>
-    <%= f.submit %>
+<tr><td></td>
+  <td>  <%= f.submit %></td></tr>
 
 <% end %>

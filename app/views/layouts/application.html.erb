@@ -5,6 +5,9 @@
       <title>Travel Wise</title>  
       <%= favicon_link_tag 'IconBanner.png' %>
       <%= csrf_meta_tags %>  
+    
+    
+      
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>   
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>  
   </head> 
@@ -13,7 +16,7 @@
     <div id="wrapper">   
       <body style="background-color:#EDEDED;">
       <div id="banner"> 
-      <div style="position:relative;bottom:27px;text-decoration: none"><a ref="http://www.olemiss.edu">&nbsp;&nbsp;The University of Mississippi</a></div>
+      <div style="position:relative;bottom:27px;text-decoration: none"><a href="http://www.olemiss.edu">&nbsp;&nbsp;The University of Mississippi</a></div>
   <% if user_signed_in? %> <!-- IF USER IS SIGNED IN SHOW THE FOLLOWING:-->
         <font color=#EDEDED><p align="right"><%= current_user.email %>&nbsp;&nbsp;</font></p>
         <div style="position:relative; float:right;z-index: 1"><%= link_to destroy_user_session_path, :method => :delete do %><%= image_tag("OffButton.png", size: "30") %>

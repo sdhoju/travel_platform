@@ -6,16 +6,16 @@
 <table class = "table table-bordered table-striped">
    <thead>.
     <tr>
-    <th>Category</th>
+    <th>Date</th>
     <th>Detail</th>
     <th>Amount</th>
     </tr>
   </thead>
   <tbody>
  <% @inc =0 %>
-  <% @trip.transactions.each do |transaction| %>
+  <% @trip.transactions.order(:date).each do |transaction| %>
     <tr>
-    <td><%= @inc+=1 %></td>
+    <td><%= transaction.date %></td>
       <td><%= transaction.dest %></td>
       <td><%= transaction.item %></td>
       <td>$<%= transaction.amount %></td>

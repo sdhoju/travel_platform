@@ -1,5 +1,5 @@
 module TripsHelper
-	require 'date'
+	
 def rubyxl(trip)
 	@trip =trip
 Rails.root.join "app", "assets", "Form.xlsx"
@@ -28,7 +28,7 @@ cellDept.change_contents(trip.dept)
 
 #dept
 cellDept = worksheet.sheet_data[2][7]
-cellDept.change_contents(' Science')
+cellDept.change_contents(trip.dept)
 #######################################################################################
 #trips
 
@@ -70,8 +70,7 @@ cellCom.change_contents(trip.purpose)
 #######################################################################################
 #Day
 c=5
-epoch = Date.new(2000,01,01)
-@trip.transactions.each do |transaction|
+@trip.transactions.order(:date).each do |transaction|
 	cellDay = worksheet.sheet_data[7][c]
 	tempdate=worksheet.sheet_data[7][c].value	
 	if (tempdate.nil?)

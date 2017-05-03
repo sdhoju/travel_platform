@@ -1,12 +1,10 @@
-<br>
-
-
+<h3>Export Trip</h3>
 <br>
 <% rubyxl(@trip) %>
 <center>
-<%= link_to '<button class="btn2">Export Trip</button>'.html_safe, trip_download_path(@trip) %>
-</br>
- <%= link_to '<button type="button">BAck</button>'.html_safe, [@trip] %><br><br />
-
-
+<%= link_to '<button class="btn2">Export to Excel</button>'.html_safe, trip_download_path(@trip) %>
+</br><br>
 </center>
+<div style="float: left; margin-left: 8px">
+ <%= link_to '<button type="button">Cancel</button>'.html_safe, [@trip] %></div>
+

@@ -1,16 +1,16 @@
 
 <%= form_for ([@trip, @trip.transactions.build]) do |f| %>
 <table>
-    <tr><td><%= f.label :Date %></td><td>:&nbsp;&nbsp;
+    <tr><td><%= f.label :Date, "Date: " %></td><td>
     <%= f.text_field :date, :id=>"datepicker" %></td></tr>
 
-	 <tr><td><%= f.label :type %></td><td>:&nbsp;&nbsp;
+	 <tr><td><%= f.label :type, "Type: " %></td><td>
    <%= f.select :dest, ["","Breakfast","Lunch","Dinner","Lodging","Meal tips", "Taxi", "Parking toll","Gasoline","Business Calls"], {class: "form-control"} %></td></tr>
-  <tr><td>   <%= f.label :detail %></td><td>:&nbsp;&nbsp;
+  <tr><td>   <%= f.label :detail %></td><td>
     <%= f.text_field :item %></td></tr>
     
-    <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
-    <%= f.text_field :amount %></td></tr>
-    <tr><td></td><td>&nbsp;&nbsp; <%= f.submit %></td></tr>
+    <tr><td> <%= f.label :amount, "Amount: " %></td><td>
+    <%= f.text_field :amount %></td></tr><br>
+    <tr><td></td><td><%= f.submit %></td></tr>
 </table>
 <% end %>

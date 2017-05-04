@@ -2,13 +2,13 @@
 <br>
 <div><table><%= form_for(@other_expense, as: :other_expense, url: trip_other_expense_path(@trip)) do |f| %>
        
-   <tr><td> <%= f.label :date %></td><td>:&nbsp;&nbsp;&nbsp;
+   <tr><td> <%= f.label :date, "Date: " %></td><td>
     <%= f.text_field :day, :id=>"datepicker" %></td></tr>
-      <tr><td><%= f.label :description %></td><td>:&nbsp;&nbsp;&nbsp;
+      <tr><td><%= f.label :description, "Description: " %></td><td>
     <%= f.text_field :description %></td></tr>
-      <tr><td><%= f.label :amount %></td><td>:&nbsp;&nbsp;&nbsp;
+      <tr><td><%= f.label :amount, "Amount: " %></td><td>
     <%= f.text_field :amount %></td></tr>
-     <tr><td></td><td>&nbsp;&nbsp;&nbsp; <%= f.submit %></td></tr>
+     <tr><td></td><td> <br><%= f.submit %></td></tr>
 
 <% end %></table>
 </div>

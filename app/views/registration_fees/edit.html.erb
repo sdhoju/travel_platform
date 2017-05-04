@@ -3,9 +3,9 @@
 <h3>Edit Fee</h3><br>
 
 <%= form_for(@registration_fee, as: :registration_fee, url: trip_registration_fee_path(@trip)) do |f| %>
-   <%= f.label :name %>
-   <%= f.select :name, ["","Conference Fee","Banquet Fee","Dues"], {class: "form-control"} %>  
-   <%= f.label :amount %>
+   <%= f.label :name, "Type: " %>
+   <%= f.select :name, ["","Conference Fee","Banquet Fee","Dues"], {class: "form-control"} %>  <br>
+   <%= f.label :amount, "Amount: " %>
    <%= f.text_field :amount %><br><br>
    <%= f.submit %>
 

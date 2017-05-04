@@ -46,11 +46,11 @@
           <%= image_tag("Travel_Logo.png", :alt => "logo", width: "150", height: "50")%>       
           <% end %></div><br><br>
         <% end %>
-        <center>
+        <center><br>
         <%if notice %>
             <p class="notice"><%=notice%></p>
                <%elsif alert %>
-    <p class="alert"><%=alert%></p> 
+    <br><p class="alert"><%=alert%></p> 
     <%end%>             
       <br><%= yield %> </center>        
     </div>

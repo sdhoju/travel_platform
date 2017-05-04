@@ -1,25 +1,25 @@
 <h3>Edit Transportation Expense</h3>
-
+<br>
 <%= form_for(@transportation, as: :transportation, url: trip_transportation_path(@trip))  do |f| %>
     <table>
-      <tr><td> <%= f.label :date %></td><td>:&nbsp;&nbsp;
+      <tr><td> <%= f.label :date, "Date: " %></td><td>
     <%= f.text_field :date, :id=>"datepicker" %></td></tr>
-   <tr><td><%= f.label :from %></td><td>:&nbsp;&nbsp;
+   <tr><td><%= f.label :from, "From: " %></td><td>
     <%= f.text_field :from %></td></tr>
-    <tr><td> <%= f.label :to %></td><td>:&nbsp;&nbsp;
+    <tr><td> <%= f.label :to, "To: " %></td><td>
  
     <%= f.text_field :to %></td></tr>
-    <tr><td> <%= f.label :mileage %></td><td>:&nbsp;&nbsp;
+    <tr><td> <%= f.label :mileage, "Mileage: " %></td><td>
     <%= f.text_field :mileage %></td></tr>
-    <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
+    <tr><td> <%= f.label :amount, "Amount: " %></td><td>
     <%= f.text_field :amount %></td></tr>
-   <tr><td>  <%= f.label :airfare %></td><td>:&nbsp;&nbsp;
+   <tr><td>  <%= f.label :airfare, "Airfare: " %></td><td>
     <%= f.text_field :airfare %></td></tr>
-    <tr><td> <%= f.label :rental_car %></td><td>:&nbsp;&nbsp;
+    <tr><td> <%= f.label :rental_car, "Rental Car: " %></td><td>
     <%= f.text_field :rental_car %></td></tr>
-    <tr><td> <%= f.label :bus_train %></td><td>:&nbsp;&nbsp;
+    <tr><td> <%= f.label :bus_train, "Bus/Train: " %></td><td>
     <%= f.text_field :bus_train %></td></tr>
-<tr><td> </td><td>    <%= f.submit %></td></tr>
+<tr><td> </td><td>    <br><%= f.submit %></td></tr>
 </table>
 
 <% end %>

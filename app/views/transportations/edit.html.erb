@@ -1,7 +1,7 @@
 <h3>Edit Transportation Expense</h3>
-<table>
+
 <%= form_for(@transportation, as: :transportation, url: trip_transportation_path(@trip))  do |f| %>
-    
+    <table>
       <tr><td> <%= f.label :date %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :date, :id=>"datepicker" %></td></tr>
    <tr><td><%= f.label :from %></td><td>:&nbsp;&nbsp;
@@ -20,7 +20,8 @@
     <tr><td> <%= f.label :bus_train %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :bus_train %></td></tr>
 <tr><td> </td><td>    <%= f.submit %></td></tr>
+</table>
 
-<% end %></table>
+<% end %>
 <div style="float: left; margin-left: 8px">
 <%= link_to '<button type="button">Cancel</button>'.html_safe, controller: 'transportations', class: 'button' %></div>

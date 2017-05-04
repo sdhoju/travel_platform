@@ -1,9 +1,9 @@
 <center>
 
 <h3>Edit Transaction </h3><br>
-<table>
-<%= form_for(@transaction, as: :transaction, url: trip_transaction_path(@trip)) do |f| %>
 
+<%= form_for(@transaction, as: :transaction, url: trip_transaction_path(@trip)) do |f| %>
+<table>
  <tr><td><%= f.label :Date %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :date, :id=>"datepicker" %></td></tr>
 
@@ -15,8 +15,8 @@
     <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :amount %></td></tr>
     <tr><td></td><td>&nbsp;&nbsp; <%= f.submit %></td></tr>
-
-<% end %>
 </table>
+<% end %>
+
 </center><br>
 <%= link_to '<button type="button">Back</button>'.html_safe, controller: 'transactions', class: 'button' %>

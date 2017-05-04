@@ -2,9 +2,9 @@
 <br>
 <div style= "padding-left: 8px">
 
-<table>
+
 <%= form_for([@trip, @trip.other_expenses.build])  do |f| %>
-    
+    <table>
    <tr><td> <%= f.label :date %></td><td>:&nbsp;&nbsp;&nbsp;
     <%= f.text_field :day, :id=>"datepicker" %></td></tr>
       <tr><td><%= f.label :description %></td><td>:&nbsp;&nbsp;&nbsp;
@@ -12,8 +12,8 @@
       <tr><td><%= f.label :amount %></td><td>:&nbsp;&nbsp;&nbsp;
     <%= f.text_field :amount %></td></tr>
      <tr><td></td><td>&nbsp;&nbsp;&nbsp; <%= f.submit value="Add Expense" %></td></tr>
-
-<% end %></table>
+</table>
+<% end %>
 <br>
 <div style="float:left;margin-left: 8px">
 <%= link_to '<button type="button">Cancel</button>'.html_safe, trip_other_expenses_path(@trip) %></div>

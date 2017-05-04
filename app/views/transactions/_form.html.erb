@@ -1,6 +1,6 @@
-<table>
-<%= form_for ([@trip, @trip.transactions.build]) do |f| %>
 
+<%= form_for ([@trip, @trip.transactions.build]) do |f| %>
+<table>
     <tr><td><%= f.label :Date %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :date, :id=>"datepicker" %></td></tr>
 
@@ -12,5 +12,5 @@
     <tr><td> <%= f.label :amount %></td><td>:&nbsp;&nbsp;
     <%= f.text_field :amount %></td></tr>
     <tr><td></td><td>&nbsp;&nbsp; <%= f.submit %></td></tr>
-
-<% end %></table>
+</table>
+<% end %>

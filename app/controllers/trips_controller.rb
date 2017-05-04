@@ -39,17 +39,31 @@ def excel
    @trip = Trip.find("#{id}") 
   render 'excel'
 end
-
+def pdf
+   @trip = Trip.find("#{id}") 
+  render 'pdf'
+end
  def destroy
     @trip = Trip.find(params[:id])
     @trip.destroy
     redirect_to trips_path
   end
+def downloadpdf 
+      new=
+    @trip = Trip.find("#{id}") 
+    if current_user.id=@trip.user.id 
+    if  send_file Rails.root+"Pdf/trip_#{@current_user.id}_#{@trip.id}.pdf", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
+    else
+      redirect_to @trip
+    end
+    end
+  end
+
     def download 
       new=
     @trip = Trip.find("#{id}") 
     if current_user.id=@trip.user.id 
-    if  send_file "Excel/trip_#{@current_user.id}_#{@trip.id}.xlsx", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
+    if  send_file "Excel/trip_#{@current_user.id}_#{@trip.id}_1.xlsx", :type=>"application/xlsx", :disposition =>"inline", :x_sendfile => true
     else
       redirect_to @trip
     end

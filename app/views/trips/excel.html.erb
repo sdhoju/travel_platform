@@ -1,11 +1,9 @@
 <h3>Export Trip</h3>
 <br>
-<% rubyxl(@trip) %>
+<% rubyxl(@trip,1) %>
 <center>
 <%= link_to '<button class="btn2">Export to Excel</button>'.html_safe, trip_download_path(@trip) %>
 </br><br>
 </center>
 <div style="float: left; margin-left: 8px">
- <%= link_to '<button type="button">Cancel</button>'.html_safe, [@trip] %></div>
-
-<embed src="Forn.xlsx">
+ <%= link_to '<button type="button">Cancel</button>'.html_safe, [@trip] %></div><%= link_to '<button class="btn2">Pdf</button>'.html_safe, trip_pdf_path(@trip) %>

@@ -66,3 +66,4 @@ gem 'devise'
 gem 'carrierwave'
 gem "fog"
 gem 'rubyXL'
+gem 'libreconv'

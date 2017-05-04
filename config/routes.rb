@@ -8,6 +8,8 @@ devise_for :users
 
 resources :trips do
 	get 'download'
+	get 'downloadpdf'
+	get :pdf
 	get :excel
 	resources :transactions do
 		resources :receipts

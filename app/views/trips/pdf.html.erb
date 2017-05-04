@@ -1,0 +1,10 @@
+<h3>Export Trip as Pdf</h3>
+<br>
+
+<% rubyconv(@trip) %>
+<center>
+<%= link_to '<button class="btn2">Download pdf</button>'.html_safe, trip_downloadpdf_path(@trip) %>
+</br><br>
+</center>
+<div style="float: left; margin-left: 8px">
+ <%= link_to '<button type="button">Cancel</button>'.html_safe, [@trip] %></div>

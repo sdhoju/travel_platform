@@ -1,9 +1,10 @@
 module TripsHelper
 	require 'date'
-def rubyxl(trip)
+	require 'libreconv'
+def rubyxl(trip,f)
 	@trip =trip
 Rails.root.join "app", "assets", "Form.xlsx"
-workbook = RubyXL::Parser.parse("Form.xlsx")
+workbook = RubyXL::Parser.parse("Form#{f}.xlsx")
 
 workbooknew =workbook 
 worksheet = workbooknew[0]
@@ -290,8 +291,18 @@ celloetotal.change_contents(@trip.other_expenses.sum(:'amount'))
 
 
 
-workbook.write("Excel/trip_#{@trip.user.id}_#{@trip.id}.xlsx")
-
+workbook.write("Excel/trip_#{@trip.user.id}_#{@trip.id}_#{f}.xlsx")
+filenam="trip_#{@trip.user.id}_#{@trip.id}"
 
 end
+def rubyconv(trip)
+	@trip=trip
+Rails.root.join "Pdf"
+f=2
+rubyxl(@trip,f)
+Libreconv.convert("Excel/trip_#{@trip.user.id}_#{@trip.id}_2.xlsx","#{Rails.root}/Pdf/trip_#{@trip.user.id}_#{@trip.id}.pdf",nil,'pdf:writer_pdf_Export')
+end
+
+
+
 end
